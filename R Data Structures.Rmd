@@ -11,13 +11,51 @@ bibliography: test.bib
 nocite: |
   @Gomilla_RBasic_EstructurasDatosR
 header-includes: |
-    \AtBeginDocument{\let\maketitle\relax}
+    \AtBeginDocument{\let\maketitle\relax \setlength\baselineskip{6.5mm}}
     \usepackage{titlesec}
     \titlespacing\section{0pt}{1pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
     \titlespacing\subsection{0pt}{5pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
     \titlespacing\subsubsection{0pt}{3pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
     \usepackage{titling}
     \setlength{\parskip}{1.5pt}
+    \usepackage{tikzpagenodes}
+    \usepackage{lipsum}
+    \usepackage{background}
+    
+    \definecolor{notepadrule}{RGB}{217,244,244}
+    \usetikzlibrary{calc}
+    \usepackage{tikz}
+    \usepackage{setspace}
+    \usepackage{parskip}
+    \setlength{\parskip}{6.5mm}
+    \setlength{\parindent}{0pt}
+    
+    % Configuración de cabeceras para que no alteren el interlineado
+    \titleformat{\subsection}
+      {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+    \titlespacing*{\subsection}
+      {0pt}{0pt}{0pt}
+          \titlespacing*{\subsubsection}
+      {0pt}{0pt}{0pt}
+      
+
+
+    \backgroundsetup{%
+     position=current page.center,
+     angle=0,
+     scale=1,
+     contents={%
+      \begin{tikzpicture}%
+        [
+          normal lines/.style={blue, very thin},
+          red lines/.style={red, thick},
+          every node/.append style={black, align=center, opacity=1}
+        ]
+        \foreach \y in {0mm,3mm,9.5mm,16mm,22.5mm,29mm,35.5mm,42mm,48.5mm,55mm,61.5mm,68mm,74.5mm,81mm,87.5mm,94mm,100.5mm,107mm,113.5mm,120mm,126.5mm,148mm}
+          \draw[normal lines] (0,\y) -- (8.5in,\y);
+        \draw[red lines](0,133mm) -- (8.5in,133mm);
+      \end{tikzpicture}%
+    }}
 ---
 Agrupan Datos del mismo tipo. Para elementos de otros tipos: **[[Listas Generalizadas en R]]**.
 
