@@ -3,7 +3,7 @@ title: Vectores en R
 author: Author Name
 header: R01V01
 footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
-geometry: a5paper, landscape, top=0.9cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.1cm, footskip = 12pt
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
 output:
   pdf_document:
       template: warro.tex
