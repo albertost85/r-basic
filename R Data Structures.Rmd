@@ -7,19 +7,20 @@ geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, 
 output:
   pdf_document:
       template: warro.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+fontsize: 8pt
 bibliography: test.bib
-nocite: |
-  @Gomilla_RBasic_EstructurasDatosR
+nocite:
 header-includes: |
-    \AtBeginDocument{\let\maketitle\relax \setlength\baselineskip{6.5mm}}
+    \AtBeginDocument{\let\maketitle\relax  \leading{6.5mm} \setlength\baselineskip{6.5mm} \setlength\lineskiplimit{-\maxdimen}}
     \usepackage{titlesec}
-    \titlespacing\section{0pt}{1pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
-    \titlespacing\subsection{0pt}{5pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
-    \titlespacing\subsubsection{0pt}{3pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
     \usepackage{titling}
-    \setlength{\parskip}{1.5pt}
+    \usepackage{layouts}
+
     \usepackage{tikzpagenodes}
     \usepackage{lipsum}
+
     \usepackage{background}
     
     \definecolor{notepadrule}{RGB}{217,244,244}
@@ -27,18 +28,21 @@ header-includes: |
     \usepackage{tikz}
     \usepackage{setspace}
     \usepackage{parskip}
-    \setlength{\parskip}{6.5mm}
-    \setlength{\parindent}{0pt}
-    
-    % Configuración de cabeceras para que no alteren el interlineado
-    \titleformat{\subsection}
-      {\normalfont\large\bfseries}{\thesubsection}{1em}{}
-    \titlespacing*{\subsection}
-      {0pt}{0pt}{0pt}
-          \titlespacing*{\subsubsection}
-      {0pt}{0pt}{0pt}
-      
+    \setlength{\parskip}{0pt}
 
+    % Ajuste del espaciado antes y después de los encabezados
+    \usepackage{leading}
+    
+    % Configuración del interlineado para que coincida con el papel milimetrado
+    \setstretch{1.25} % Ajusta este valor para que coincida con la cuadrícula del papel
+    
+    % Ajuste del espaciado antes y después de los encabezados
+    \titlespacing*{\section}
+    {0pt}{0.5\baselineskip}{0.5\baselineskip}
+    \titlespacing*{\subsection}
+    {0pt}{0\baselineskip}{0\baselineskip}
+    \titlespacing*{\subsubsection}
+    {0pt}{0.5\baselineskip}{0.5\baselineskip}
 
     \backgroundsetup{%
      position=current page.center,
@@ -62,7 +66,6 @@ Agrupan Datos del mismo tipo. Para elementos de otros tipos: **[[Listas Generali
 Si al crear un vector los elemento no son heterogéneos, R los convierte al tipo que pueda englobar todo, en este orden de prelación:
 ````LOGIC->integer->numeric->complex->character````
 		
-## Funciones para crear vectores.
 ### c()
 Define un vector a partir de los datos entre paréntesis.
 Puede usarse para concatenar vectores existentes.
@@ -90,3 +93,8 @@ Devuelve el tipo de datos que contiene el vector.
 \pagebreak
 
 # References
+## References2
+processing file: R-Data-Structures.Rmd
+output file: R-Data-Structures.knit.md
+Error: LaTeX failed to compile R-Data-Structures.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See R-Data-Structures.log for more info.
+Execution halted
