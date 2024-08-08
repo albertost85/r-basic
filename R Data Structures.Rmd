@@ -43,6 +43,8 @@ header-includes: |
     {0pt}{0\baselineskip}{0\baselineskip}
     \titlespacing*{\subsubsection}
     {0pt}{0.5\baselineskip}{0.5\baselineskip}
+    \titlespacing*{\paragraph}
+    {0pt}{0\baselineskip}{0\baselineskip}
 
     \backgroundsetup{%
      position=current page.center,
@@ -65,13 +67,14 @@ Agrupan Datos del mismo tipo. Para elementos de otros tipos: **[[Listas Generali
 
 Si al crear un vector los elemento no son heterogéneos, R los convierte al tipo que pueda englobar todo, en este orden de prelación:
 ````LOGIC->integer->numeric->complex->character````
-		
+
+## Funciones útiles
 ### c()
 Define un vector a partir de los datos entre paréntesis.
 Puede usarse para concatenar vectores existentes.
 'c' de "concatenar".
 
-### rep(a,n) 
+#### rep(a,n) 
 Crea un vector de elementos repetidos "a" n veces.
 			
 ### scan()
