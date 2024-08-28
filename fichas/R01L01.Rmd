@@ -1,0 +1,36 @@
+---
+title: Listas en R
+author: Author Name
+header: R01L01
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash listas
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Una **lista** o **lista ordenada** es un conjunto de datos, como un vector, pero no necesariamente del mismo tipo.
+
+Para obtener una componente concreta usamos la instrucción `list$componente`
+
+También podemos indicar el objeto por su posición usando dobles corchetes: `list[[i]]`. Lo que obtendremos es una list formada por esa única componente, no el objeto que forma la componente
+
+Se identifica cada objeto por un nombre interno.
+
+### Funciones para utilizar listas [[R01L02]]
+`list(...)`, `str(list)`, `names(list)`
+
+## Ejemplo
+```{r}
+x = c(1,-2,3,4,-5,6,7,-8,-9,0)
+miLista = list(nombre = "X", vector = x, media = mean(x), sumas = cumsum(x))
+```
+
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618831-listas</code>.

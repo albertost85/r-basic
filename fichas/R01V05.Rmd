@@ -1,0 +1,35 @@
+---
+title: Funciones de medida de un vector en R
+author: Author Name
+header: R01V05
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+### ```mean(x)```
+- Calcula la media aritmética de las entradas del vector $x$
+
+### ```diff(x)```
+- Calcula el vector formado por las diferencias sucesivas entre entradas del vector original $x$
+
+### ```cumsum(x)```
+- Calcula el vector formado por las sumas acumuladas de las entradas del vector original $x$.
+  - Permite definir [[sucesiones]] descritas mediante sumatorios.
+  - Cada entrada de ``cumsum(x)`` es la suma de las entradas de $x$ hasta su posición.
+	
+### ```cummin(x), cummax(x)```
+- Devuelven un vector con los valores mínimos o máximos encontrados en el vector original $x$.
+
+### ```cumprod(x)```
+- Calcula el vector formado por los productos acumuladas de las entradas del vector original $x$.
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618865-funciones-y-orden-de-vectores</code>.

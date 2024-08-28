@@ -1,0 +1,36 @@
+---
+title: Factores R
+author: Author Name
+header: R01F01
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash factores
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Es como un vector, pero con una estructura interna más rica que permite usarlo para clasificar observaciones
+
+## Funciones para utilizar factores [[R01F02]]
+`factor(...), as.factor(), levels(factor)`
+
+## Funciones para utilizar factores ordenados [[R01F03]]
+`ordered(vector,levels=...)`
+
+## Ejemplo
+```{R}
+fac = factor(c(1,1,1,2,2,3,2,4,1,3,3,4,2,3,4,4), 
+       levels = c(1,2,3,4), labels = c("Sus","Apr","Not","Exc"))
+fac
+facOrd = ordered(c(1,1,1,2,2,3,2,4,1,3,3,4,2,3,4,4), 
+       levels = c(1,2,3,4), labels = c("Sus","Apr","Not","Exc"))
+facOrd
+```
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618868-factores</code>.

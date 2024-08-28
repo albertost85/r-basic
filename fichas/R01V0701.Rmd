@@ -1,0 +1,33 @@
+---
+title: Subvectores de índices en R
+author: Author Name
+header: R01V0701
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+### ```which(x cumple condición)```
+- Para obtener el [[**R01V07**| subvector]] con los índices de las entradas del vector $x$ que satisfacen la condición dada.
+
+#### ```which.min(x)```
+- Nos da la primera posición en la que el vector $x$ toma su valor mínimo.
+
+#### ```which(x==min(x))```
+- Da todas las posiciones en las que el vector $x$ toma sus valores mínimos.
+
+#### ```which.max(x)```
+- Nos da la primera posición en la que el vector $x$ toma su valor máximo.
+
+#### ```which(x==max(x))```
+- Da todas las posiciones en las que el vector $x$ toma sus valores máximos.
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618897-subvectores-y-filtros</code>.

@@ -1,0 +1,35 @@
+---
+title: Aplicar una función sobre los elementos de una matriz en R
+author: Author Name
+header: R01M06
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Matrices
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Es posible aplicar una función a los elementos, filas o columnas de una matriz.
+
+### `apply(matriz, MARGIN=..., FUN=función)`
+- Aplicar la función FUN a las filas o columnas de una matriz.
+- Parámetros:
+  - `MARGIN`: 
+    - 1 si queremos aplicar la función por filas; 
+    - 2 si queremos aplicarla por columnas; 
+    - c(1,2) si la queremos aplicar a cada entrada.
+
+## Ejemplo
+```{r}
+A = matrix(c(1,2,3,4,5,6,7,8,9), ncol = 3)
+apply(A, MARGIN = c(1,2), FUN = sqrt)
+apply(A, MARGIN = 1, FUN = sum)
+```
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618867-matrices</code>.

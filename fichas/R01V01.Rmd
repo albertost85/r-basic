@@ -1,0 +1,45 @@
+---
+title: Vectores en R
+author: Author Name
+header: R01V01
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+
+Agrupan datos del mismo tipo.
+
+Para agrupar datos de distintos tipos: Listas generalizadas [[R01L01]]
+
+Si al crear un vector los elemento no son heterogéneos, R los convierte al tipo que pueda englobar todo, en este orden de prelación:
+```
+LOGIC->integer->numeric->complex->character
+```
+
+## Funciones para crear vectores [[R01V02]]
+c(), rep(a,n), scan(), class()
+
+## Función para generar una progresión aritmética [[R01V03]]
+seq(), a:b
+
+## Funciones sobre los elementos de un vector [[R01V04]]
+sqrt(a), +, -, *, ^, sapply()
+
+## Funciones de medida estadística de un vector [[R01V05]]
+mean(), diff(), cumsum(), cummin(), cummax(), cumprod()
+
+## Funciones para ordenar los datos de un vector [[R01V06]]
+sort(), rev()
+
+## Subvectores [[R01V07]]
+vector[a:b]
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618845-vectores-y-tipos-de-datos-en-r</code>.

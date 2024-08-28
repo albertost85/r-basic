@@ -1,0 +1,43 @@
+---
+title: Matrices en R
+author: Author Name
+header: R01M01
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Matrices
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+knitr::opts_knit$set(root.dir = '/tmp')
+---
+En R son la extensión del vector a dos dimensiones.
+
+Todas las entradas de una matriz han de ser del mismo tipo de datos.
+
+R muestra las matrices indicando como [$i,$] la fila $i$-ésima y [$,j$] la columna $j$-ésima.
+
+### Funciones para construir y manejar matrices [[R01M02]]
+`matrix(vec, nrow=n, byrow=valor_lógico)`, `rbind(vec1, vec2,...)`, `cbind(vec1, vec2, ...)`, `diag(vector)`
+
+### Funciones de medida de las matrices [[R01M04]]
+`diag(matriz)`, `nrow(matriz)`,`ncol(matriz)`, `dim(matriz)`, `sum(matriz)`, `prod(matriz)`, `mean(matriz)`
+
+### Funciones que devuelven submatrices [[R01M03]], [[R01M05]]
+`colSums(matriz)`, `rowSums(matriz)`, `colMeans(matriz)`, `rowMeans(matriz)`
+
+### Aplicar una función sobre los elementos de una matriz [[R01M06]]
+`apply(matriz, MARGIN=..., FUN=función)`
+
+###  Operaciones de álgebra lineal sobre matrices [[R01M07]], [[R01M0701]]
+`t(matriz)`, `+`, `-`, `*`, `%*%`, `^`, `mtx.exp(matriz,n)`, `det(matriz)`, `qr(matriz)$rank`, `solve(matriz)`...
+
+### Función para obtener valores propios de una matriz [[R01M0702]]
+`eigen(matriz)`
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618867-matrices</code>.

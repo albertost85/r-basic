@@ -1,0 +1,37 @@
+---
+title: Funciones para construir matrices en R
+author: Author Name
+header: R01M02
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Matrices
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+### `matrix(vector, nrow=n, byrow=valor_lógico)`
+- Para definir una matriz de $n$ filas formada por las entradas del vector
+- Parámetros:
+  - `nrow`: número de filas
+  - ` ncol`: número de columnas (puede usarse en lugar de nrow)
+  - `byrow`: si se iguala a TRUE, la matriz se construye por filas; si se iguala a FALSE (valor por defecto), se construye por columnas.
+		    
+### `rbind(vector1, vector2, ...)`
+- Construye la matriz de filas vector1,  vector2,... si son de la misma longitud.
+- También sirve para añadir filas a una matriz.
+			
+### `cbind(vector1, vector2, ...)`
+- Construye la matriz de columnas vector1,  vector2,... si son de la misma longitud.
+- También sirve para añadir columnas a una matriz.
+
+### `diag(vector)`
+- Construye una matriz diagonal con un vector dado
+- Si aplicamos diag a un número $n$, produce una matriz identidad de orden $n$
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618867-matrices</code>.

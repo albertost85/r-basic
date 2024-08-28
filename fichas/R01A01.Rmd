@@ -1,0 +1,29 @@
+---
+title: Descomposición canónica de matrices en R
+author: Author Name
+header: R01A01
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Matrices \#Algebra
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Si P es la matriz de vectores propios de M y D es la matriz diagonal cuyas entradas son los valores propios de M, entonces se cumple la siguiente igualdad, conocida como **descomposición canónica**: 
+$$M = P \cdot D \cdot P^{-1}$$
+
+## Ejemplo en R
+```{r}
+M = rbind(c(2,6,-8), c(0,6,-3), c(0,2,1))
+P = eigen(M)$vectors
+D = diag(eigen(M)$values)
+P %*% D %*% solve(P)
+```
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618869-un-repaso-de-algebra-lineal</code>.

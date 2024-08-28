@@ -1,0 +1,32 @@
+---
+title: Funciones que devuelven submatrices en R
+author: Author Name
+header: R01M05
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Matrices
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Estas funciones devuelven una [[**R01M03**|submatriz]] de datos.
+
+### `colSums(matriz)`
+- Obtenemos las sumas por columnas de la matriz.
+
+### `rowSums(matriz)`
+- Obtenemos las sumas por filas de la matriz.
+
+### `colMeans(matriz)`
+- Obtenemos las medias aritméticas por columnas de la matriz.
+
+### `rowMeans(matriz)`
+- Obtenemos las medias aritméticas por filas de la matriz.
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618867-matrices</code>.

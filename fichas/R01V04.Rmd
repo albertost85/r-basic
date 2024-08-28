@@ -1,0 +1,33 @@
+---
+title: Funciones sobre los elementos de un vector en R
+author: Author Name
+header: R01V04
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Algunas funciones como sqrt(a) devuelven un vector con la raíz de cada elemento, y otras funciones se han de aplicar en bucle o mediante la función sapply(). 
+
+Otros operadores que no presentan problemas son la suma ```+```, multiplicación ```*```.
+
+Un número $b$ elevado al vector devuelve un vector con $b$ elevado a cada uno de los valores del vector $x$: ```b^x```
+
+```sapply(nombre_de_vector,FUN=nombre_de_función)```: aplica un algoritmo a cada uno de los elementos de un vector de datos utilizando un bucle, o la función .
+
+### Ejemplo
+```{r}
+cuadrado = function(x){x^2}
+v = c(1,2,3,4,5,6)
+sapply(v, FUN = cuadrado)
+```
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618865-funciones-y-orden-de-vectores</code>.

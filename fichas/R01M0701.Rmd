@@ -1,0 +1,28 @@
+---
+title: Operaciones de álgebra lineal sobre matrices en R
+author: Author Name
+header: R01M0701
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Matrices
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+### `det(matriz)`
+- Para calcular el determinante de la matriz.
+
+### `qr(matriz)$rank`
+- Para calcular el rango de la matriz.
+
+### `solve(matriz)`
+- Para calcular la inversa de una matriz invertible.
+- También sirve para resolver sistemas de ecuaciones lineales. Para ello introducimos `solve(matriz,b)`, donde $b$ es el vector de términos independientes.
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618869-un-repaso-de-algebra-lineal</code>.

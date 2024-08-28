@@ -1,0 +1,36 @@
+---
+title: Funciones para utilizar listas en R
+author: Author Name
+header: R01L02
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash listas
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+### `list(...)`
+Función que crea una lista
+
+### `str(list)`
+Para conocer la estructura interna de una list
+
+### `names(list)`
+Para saber los nombres de la list
+
+## Ejemplo
+```{r}
+x = c(1,-2,3,4,-5,6,7,-8,-9,0)
+miLista = list(nombre = "X", vector = c(1,-2,3,4,-5,6,7,-8,-9,0), media = mean(x), sumas = cumsum(x))
+names(miLista)
+str(miLista)
+```
+
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618831-listas</code>.

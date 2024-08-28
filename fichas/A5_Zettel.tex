@@ -228,6 +228,33 @@ $if(zero-width-non-joiner)$
 \fi
 %% End of ZWNJ support
 $endif$
+
+% A5 modifications begin
+    \usepackage{titlesec}
+    \usepackage{titling}
+%    \usepackage{layouts}
+    \usepackage{setspace}
+    \usepackage{parskip}
+    \setlength{\parskip}{0pt}
+
+    % Ajuste del espaciado antes y después de los encabezados
+    \usepackage{leading}
+    
+    % Configuración del interlineado para que coincida con el papel milimetrado
+    \setstretch{1.25} % Ajusta este valor para que coincida con la cuadrícula del papel
+    
+    % Ajuste del espaciado antes y después de los encabezados
+    \titlespacing*{\section}
+    {0pt}{0\baselineskip}{0.5\baselineskip}
+    \titlespacing*{\subsection}
+    {0pt}{-0.16\baselineskip}{0\baselineskip}
+    \titlespacing*{\subsubsection}
+    {0pt}{0\baselineskip}{0\baselineskip}
+    \titlespacing*{\paragraph}
+    {0pt}{0\baselineskip}{0\baselineskip}
+% A5 modificationsend
+
+
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
@@ -543,12 +570,42 @@ $endif$
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhead[L]{$title$}
-\fancyhead[R]{$header$}
-\fancyfoot[C]{$footer$}
+\fancyhead[L]{\Large \textsf{$title$}}
+\fancyhead[R]{\Large \textsc{$header$}}
+\fancyfoot[C]{\texttt{$footer$}}
 \renewcommand{\headrulewidth}{0pt}
+\renewcommand*\footnoterule{}
+
+$if(printpaper)$
+\usepackage{background}
+\usepackage{tikz}
+\backgroundsetup{%
+ position=current page.center,
+ angle=0,
+ scale=1,
+ contents={%
+  \begin{tikzpicture}%
+    [
+      normal lines/.style={blue, very thin},
+      red lines/.style={red, thick},
+      every node/.append style={black, align=center, opacity=1}
+    ]
+    \foreach \y in {0mm,3mm,9.5mm,16mm,22.5mm,29mm,35.5mm,42mm,48.5mm,55mm,61.5mm,68mm,74.5mm,81mm,87.5mm,94mm,100.5mm,107mm,113.5mm,120mm,126.5mm,148mm}
+      \draw[normal lines] (0,\y) -- (8.5in,\y);
+    \draw[red lines](0,133mm) -- (8.5in,133mm);
+  \end{tikzpicture}%
+    }}
+
+$endif$
 
 \begin{document}
+% A5 modifications begin
+\let\maketitle\relax  
+\leading{6.5mm} 
+\setlength\baselineskip{6.5mm} 
+\setlength\lineskiplimit{-\maxdimen}
+% A5 modifications end
+
 $if(has-frontmatter)$
 \frontmatter
 $endif$
@@ -605,49 +662,42 @@ $endif$
 $body$
 
 $if(has-frontmatter)$
-\backmatter
+	\backmatter
 $endif$
+
 $if(natbib)$
-
-NATBIB
-
-$if(bibliography)$
-$if(biblio-title)$
-$if(has-chapters)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-$endif$
-  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-$if(beamer)$
-\end{frame}
-$endif$
-
-$endif$
+	$if(bibliography)$
+		$if(biblio-title)$
+			$if(has-chapters)$
+				\renewcommand\bibname{$biblio-title$}
+			$else$
+				\renewcommand\refname{$biblio-title$}
+			$endif$
+		$endif$
+		$if(beamer)$
+			\begin{frame}[allowframebreaks]{$biblio-title$}
+			\bibliographytrue
+		$endif$
+		\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+		$if(beamer)$
+			\end{frame}
+		$endif$
+	$endif$
 $endif$
 
 $if(biblatex)$
-
-BIBLATEX
-
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  \printbibliography[heading=none]
-\end{frame}
-$else$
-\newpage
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+	$if(beamer)$
+		\begin{frame}[allowframebreaks]{$biblio-title$}
+		  \bibliographytrue
+		  \printbibliography[heading=none]
+		\end{frame}
+	$else$
+		\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+	$endif$
 $endif$
 
-$endif$
 $for(include-after)$
-$include-after$
-
+	$include-after$
 $endfor$
+
 \end{document}
