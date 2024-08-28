@@ -5,10 +5,11 @@ header: R01V05
 footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
 geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
 output:
-  pdf_document: 
+  pdf_document:
+    latex_engine: xelatex
     template: A5_Zettel.tex
-sansfont: Calibri Light
-seriffont: "Bookman Old Style"
+sansfont: 
+mainfont: "Palatino Linotype"
 printpaper: yes
 ---
 ### ```mean(x)```
