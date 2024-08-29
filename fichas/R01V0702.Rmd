@@ -1,7 +1,7 @@
 ---
-title: Subvectores de índices en R
+title: Subconjunto nulo en R
 author: Author Name
-header: R01V0701
+header: R01V0702
 footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
 geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
 output:
@@ -11,25 +11,26 @@ sansfont: Calibri Light
 seriffont: "Bookman Old Style"
 printpaper: yes
 ---
-### ```which(x cumple condició3n)```
-- Para obtener el [[**R01V07**| subvector]] con los índices de las entradas del vector $x$ que satisfacen la condición dada.
+Se puede definir un elemento nulo en un vector concatenando un vacío, o mediante la instrucción $NULL$.
 
-#### ```which.min(x)```
-- Nos da la primera posición en la que el vector $x$ toma su valor mínimo.
+Los elementos nulos no aparecen en los vectores.
 
-#### ```which(x==min(x))```
-- Da todas las posiciones en las que el vector $x$ toma sus valores mínimos.
+### NA
+Si se crea un vector de n dimensiones con elementos nulos en algunas posiciónes, estos se reflejan por las siglas $NA$.
 
-#### ```which.max(x)```
-- Nos da la primera posición en la que el vector $x$ toma su valor máximo.
+### ```is.na(x)```
+No es un valor sino un concepto. La forma de idengificarlo es utilizar la función $is.na(x)$
 
-#### ```which(x==max(x))```
-- Da todas las posiciones en las que el vector $x$ toma sus valores máximos.
+### ```na.omit(x)```
+Toma un vector y omite todas las posiciones con NA
 
 ## Ejemplo
 ```{r}
-x = c(1,7,4,2,4,8,9,0)
-which(x>4 & x<9)
+x=1:5
+x[6]
+x[length(x)+5] = 9
+x
+is.na(x)
 ```
 
 \pagebreak

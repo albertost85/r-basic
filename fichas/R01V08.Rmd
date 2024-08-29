@@ -1,0 +1,32 @@
+---
+title: Atributos de vectores en R
+author: Author Name
+header: R01V08
+footer: \#Estadística\slash R \#Programación\slash R \#R\slash Vectores
+geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, headsep = 0.5cm, footskip = 12pt
+output:
+  pdf_document: 
+    template: A5_Zettel.tex
+sansfont: Calibri Light
+seriffont: "Bookman Old Style"
+printpaper: yes
+---
+Los vectores pueden tener atributos asociados. No entorpecen su cálculo ni su funcionamiento.
+
+### ```attr(vector,attribute)```
+Se puede acceder atributo, e in cluso modificarlo o eliminarlo igualándolo a NULL
+
+## Ejemplo
+```{r}
+x = c(1,2,NA,NA,3,NA,5)
+y = na.omit(x)
+y
+attr(y,"na.action") = NULL
+y
+```
+
+\pagebreak
+
+# Referencias
+
+**Gomilla, J. J.** (2022). _Curso completo des Estadística descriptiva - RStudio y Python. Vectores y tipos de datos en R_. Retrieved 2024, from <code style="word-wrap: break-word;">https://cursos.frogamesformacion.com/courses/take/estadistica-descriptiva/lessons/33618827-los-valores-na</code>.

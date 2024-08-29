@@ -7,6 +7,7 @@ geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, 
 output:
   pdf_document: 
     template: A5_Zettel.tex
+    keep_tex: yes
 sansfont: Calibri Light
 seriffont: "Bookman Old Style"
 printpaper: yes
@@ -17,9 +18,21 @@ Para definir un factor, primero hemos de definir un vector y transformarlo por m
 - Define un factor a partir del vector y dispone de algunos parámetros que permiten modificar el factor que se crea:
   - `levels`: permite especificar los niveles e incluso añadir niveles que no aparecen en el vector
   - `labels`: permite cambiar los nombres de los niveles
+  
+### `as.factor(vector)`
+- Define un factor a partir del vector tomando sus valores como niveles.
 
 ### `levels(factor)`
-- Devuelve los niveles del factor.
+- Devuelve los niveles del factor, y permite cambiarlos o agrupar niveles bajo una misma etiqueta.
+
+## Ejemplo
+```{R}
+fac = factor(c(1,1,1,2,2,3,2,4,1,3,3,4,2,3,4,4), 
+       levels = c(1,2,3,4,5), labels = c("Sus","Apr","Not","Exc","NOSE"))
+fac
+levels(fac) = c("Sus","Apr","Sob","Sob","NOSE")
+fac
+```
 
 \pagebreak
 
