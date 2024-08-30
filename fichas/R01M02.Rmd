@@ -10,10 +10,10 @@ output:
 sansfont: Calibri Light
 seriffont: "Bookman Old Style"
 printpaper: yes
+verbatim-in-note: yes
 ---
 ### `matrix(vector, nrow=n, byrow=valor_lógico)`
 - Para definir una matriz de $n$ filas formada por las entradas del vector
-- Parámetros:
   - `nrow`: número de filas
   - ` ncol`: número de columnas (puede usarse en lugar de nrow)
   - `byrow`: si se iguala a TRUE, la matriz se construye por filas; si se iguala a FALSE (valor por defecto), se construye por columnas.

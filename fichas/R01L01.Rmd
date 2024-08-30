@@ -15,9 +15,9 @@ Una **lista** o **lista ordenada** es un conjunto de datos, como un vector, pero
 
 Para obtener una componente concreta usamos la instrucción `list$componente`
 
-También podemos indicar el objeto por su posición usando dobles corchetes: `list[[i]]`. Lo que obtendremos es una list formada por esa única componente, no el objeto que forma la componente
+También podemos indicar el objeto por su posición usando **dobles corchetes**: `list[[i]]`. Lo que obtendremos al usar un único corchete `list[i]` es una list formada por esa única componente, no el objeto que forma la componente
 
-Se identifica cada objeto por un nombre interno.
+Se identifica cada objeto por un nombre interno, a los que se accede con la sintaxis `lista$id'
 
 ### Funciones para utilizar listas [[R01L02]]
 `list(...)`, `str(list)`, `names(list)`
@@ -26,6 +26,7 @@ Se identifica cada objeto por un nombre interno.
 ```{r}
 x = c(1,-2,3,4,-5,6,7,-8,-9,0)
 miLista = list(nombre = "X", vector = x, media = mean(x), sumas = cumsum(x))
+miLista$sumas
 ```
 
 

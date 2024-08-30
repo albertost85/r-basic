@@ -10,16 +10,25 @@ output:
 sansfont: Calibri Light
 seriffont: "Bookman Old Style"
 printpaper: yes
+
 ---
 ### `det(matriz)`
-- Para calcular el determinante de la matriz.
+- Para calcular el determinante de la matriz cuadrada. No admite matrices de valores complejos pero se puede calcular utilizando el producto de valores propios [[R01A01]]: `prod(eigen(A)$values)`
 
 ### `qr(matriz)$rank`
-- Para calcular el rango de la matriz.
+- Para calcular el rango de la matriz. `qr(matrix)` devuelve una lista con más propiedades.
 
 ### `solve(matriz)`
-- Para calcular la inversa de una matriz invertible.
-- También sirve para resolver sistemas de ecuaciones lineales. Para ello introducimos `solve(matriz,b)`, donde $b$ es el vector de términos independientes.
+- Para calcular la inversa de una matriz invertible. También sirve para resolver sistemas de ecuaciones lineales. Para ello introducimos `solve(matriz,b)`, donde $b$ es el vector de términos independientes.
+
+## Ejemplo
+```{r}
+M = rbind(c(1,4,2),c(0,1,3),c(1,8,9))
+qr(M)$rank
+M_inv = solve(M)
+M %*% M_inv
+solve(M,c(1.2,4.1,2))
+```
 
 \pagebreak
 

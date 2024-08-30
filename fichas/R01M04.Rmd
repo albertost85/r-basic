@@ -12,7 +12,7 @@ seriffont: "Bookman Old Style"
 printpaper: yes
 ---
 ### `diag(matriz)`
-- Para obtener la diagonal de la matriz.
+- Para obtener la diagonal de la matriz (también sirve para crear). Si la matriz no es cuadrada, devuelve la diagonal de la submatriz cuadrada más grande.
 
 ### `nrow(matriz)`
 - Devuelve el número de filas de la matriz.

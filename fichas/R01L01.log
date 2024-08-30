@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.10)  27 AUG 2024 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.10)  30 AUG 2024 09:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,8 +875,8 @@ Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
 \AP@partial=\box67
 \AP@footins=\box68
 ))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 15
-8.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 16
+2.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -888,37 +888,37 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 ) (R01L01.aux)
 \openout1 = `R01L01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
-LaTeX Font Info:    ... okay on input line 158.
-LaTeX Info: Redefining \microtypecontext on input line 158.
-Package microtype Info: Applying patch `item' on input line 158.
-Package microtype Info: Applying patch `toc' on input line 158.
-Package microtype Info: Applying patch `eqnum' on input line 158.
-Package microtype Info: Applying patch `footnote' on input line 158.
-Package microtype Info: Applying patch `verbatim' on input line 158.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
+LaTeX Font Info:    ... okay on input line 162.
+LaTeX Info: Redefining \microtypecontext on input line 162.
+Package microtype Info: Applying patch `item' on input line 162.
+Package microtype Info: Applying patch `toc' on input line 162.
+Package microtype Info: Applying patch `eqnum' on input line 162.
+Package microtype Info: Applying patch `footnote' on input line 162.
+Package microtype Info: Applying patch `verbatim' on input line 162.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 158.
+LaTeX Info: Redefining \showhyphens on input line 162.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -969,8 +969,8 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \textheight=352.81436pt
 * \oddsidemargin=-58.04362pt
 * \evensidemargin=-58.04362pt
-* \topmargin=-55.81723pt
-* \headheight=12.0pt
+* \topmargin=-61.81723pt
+* \headheight=18.0pt
 * \headsep=14.22636pt
 * \topskip=10.0pt
 * \footskip=12.0pt
@@ -987,58 +987,50 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 158.
+Package hyperref Info: Link coloring OFF on input line 162.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-72.
+76.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 191.
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-97.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 197.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
+08.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 18.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{18.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-6.0pt}.
-
-[1{C:/Users/alberto.simon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/
-Users/alberto.simon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}
+) [1{C:/Users/alberto.simon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C
+:/Users/alberto.simon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.en
+c}
 
 ]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-04.
+15.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-04.
+15.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-204.
+215.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-204.
+215.
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 204.
+(Font)              <10> on input line 215.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 204.
+(Font)              <7> on input line 215.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 204.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 204
+(Font)              <5> on input line 215.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 215
 .
 
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
@@ -1049,7 +1041,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 a.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 204
+LaTeX Font Info:    Trying to load font information for U+msb on input line 215
 .
 
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
@@ -1059,29 +1051,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\alberto.simon\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-ms
 b.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 18.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{18.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-6.0pt}.
-
-[2] (R01L01.aux)
+) [2] (R01L01.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-06-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 24849 strings out of 475550
- 459720 string characters out of 5758757
- 1926238 words of memory out of 5000000
- 45552 multiletter control sequences out of 15000+600000
- 602185 words of font info for 92 fonts, out of 8000000 for 9000
+ 24853 strings out of 475550
+ 459802 string characters out of 5758757
+ 1927238 words of memory out of 5000000
+ 45554 multiletter control sequences out of 15000+600000
+ 602279 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,12n,121p,1197b,1047s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,121p,1197b,1045s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/alberto.simon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
 mbx10.pfb><C:/Users/alberto.simon/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmbx12.pfb><C:/Users/alberto.simon/AppData/Local/Programs/MiKTeX/fonts/t
@@ -1091,7 +1074,7 @@ s/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/alberto.simon/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/alberto.simon/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/alberto.sim
 on/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on R01L01.pdf (2 pages, 199003 bytes).
+Output written on R01L01.pdf (2 pages, 200719 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)

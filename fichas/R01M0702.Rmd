@@ -9,12 +9,13 @@ output:
     template: A5_Zettel.tex
 sansfont: Calibri Light
 seriffont: "Bookman Old Style"
-printpaper: yes
+printpaper: no
+verbatim-in-note: yes
 ---
 ### `eigen(matriz)` 
 - Calcula los valores **vaps** y vectores propios **veps**
 
-Si hay algún vap con multiplicidad algebraica mayor que 1 (es decir, que aparece más de una vez), la función `eigen()` da tantos valores de este vap como su multiplicidad algebraica indica. Además, en este caso, R intenta que los veps asociados a cada uno de estos vaps sean [linealmente independientes](https://es.wikipedia.org/wiki/Dependencia_e_independencia_lineal). Por tanto, cuando como resultado obtenemos veps repetidos asociados a un vap de multiplicidad algebraica mayor que 1, es porque para este vap no existen tantos veps linealmente independientes como su multiplicidad algebraica y, por consiguiente, la matriz no es [diagonalizable](https://es.wikipedia.org/wiki/Matriz_diagonalizable).
+Si hay algún vap con multiplicidad algebraica mayor que 1 (es decir, que aparece más de una vez), la función `eigen()` da tantos valores de este vap como su multiplicidad algebraica indica. Además, en este caso, R intenta que los veps asociados a cada uno de estos vaps sean **linealmente independientes** [**R01A02**]. Por tanto, cuando como resultado obtenemos veps repetidos asociados a un vap de multiplicidad algebraica mayor que 1, es porque para este vap no existen tantos veps linealmente independientes como su multiplicidad algebraica y, por consiguiente, la matriz no es **diagonalizable** **R01A03**.
 
 ### `eigen(matriz)$values`
 - Nos da el vector con los vaps de la matriz en orden decreciente de su valor absoluto y repetidos tantas veces como su multiplicidad algebraica.
@@ -23,6 +24,12 @@ Si hay algún vap con multiplicidad algebraica mayor que 1 (es decir, que aparec
 - Nos da una matriz cuyas columnas son los veps de la matriz.
 
 ## Ejemplo: [[**R01A01** |Descomposición canónica de matrices en R]]
+
+## Ejemplo:
+```{r}
+M = matrix(c(0,1,0,-7,3,-1,16,-3,4), nrow = 3, byrow = TRUE)
+eigen(M)$values
+```
 
 \pagebreak
 

@@ -18,10 +18,10 @@ printpaper: yes
 - Para sumar o restar matrices.
 
 ### `*`
-- Para el producto de un escalar por una matriz.
+- Para el producto de un escalar por una matriz. O entre elementos de dos matrices, no pero no el producto algebraico de matrices.
 
 ### `%*%`
-- Para multiplicar matrices.
+- Para multiplicar matrices. El número de columnas de la primera debe coincidir con el número de filas de la segunda.
 
 ### `mtx.exp(matriz,n)`
 - Para elevar la matriz a $n$.
