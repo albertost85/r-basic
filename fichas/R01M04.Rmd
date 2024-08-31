@@ -7,9 +7,8 @@ geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, 
 output:
   pdf_document: 
     template: A5_Zettel.tex
-sansfont: Calibri Light
-seriffont: "Bookman Old Style"
-printpaper: yes
+printpaper: no
+verbatim-in-note: yes
 ---
 ### `diag(matriz)`
 - Para obtener la diagonal de la matriz (también sirve para crear). Si la matriz no es cuadrada, devuelve la diagonal de la submatriz cuadrada más grande.

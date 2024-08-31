@@ -7,10 +7,8 @@ geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, 
 output:
   pdf_document: 
     template: A5_Zettel.tex
-sansfont: Calibri Light
-seriffont: "Bookman Old Style"
-printpaper: yes
-knitr::opts_knit$set(root.dir = '/tmp')
+printpaper: no
+verbatim-in-note: yes
 ---
 En R son la extensión del vector a dos dimensiones.
 
