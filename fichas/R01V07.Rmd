@@ -7,9 +7,7 @@ geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, 
 output:
   pdf_document: 
     template: A5_Zettel.tex
-sansfont: Calibri Light
-seriffont: "Bookman Old Style"
-printpaper: yes
+printpaper: no
 ---
 - ```vector[i]```: da la $i$-ésima entrada del vector. Los vectores en R empiezan en 1.
 - ```vector[length(vector)]```: nos da la última entrada del vector

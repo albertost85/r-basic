@@ -9,7 +9,7 @@ output:
     template: A5_Zettel.tex
 sansfont: Calibri Light
 seriffont: "Bookman Old Style"
-printpaper: yes
+printpaper: no
 ---
 
 Funciones para crear vectores

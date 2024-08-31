@@ -8,9 +8,7 @@ output:
   pdf_document:
     latex_engine: xelatex
     template: A5_Zettel.tex
-sansfont: 
-mainfont: "Palatino Linotype"
-printpaper: yes
+printpaper: no
 ---
 ### ```mean(x)```
 - Calcula la media aritmética de las entradas del vector $x$

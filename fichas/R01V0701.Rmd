@@ -7,9 +7,7 @@ geometry: a5paper, landscape, top=1.5cm, bottom=0.9cm, left=0.5cm, right=0.5cm, 
 output:
   pdf_document: 
     template: A5_Zettel.tex
-sansfont: Calibri Light
-seriffont: "Bookman Old Style"
-printpaper: yes
+printpaper: no
 ---
 ### ```which(x cumple condició3n)```
 - Para obtener el [[**R01V07**| subvector]] con los índices de las entradas del vector $x$ que satisfacen la condición dada.
