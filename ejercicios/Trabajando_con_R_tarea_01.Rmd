@@ -1,0 +1,96 @@
+---
+title: Estructuras de datos en R. Tarea 01
+author: Alberto Simón
+date: "17/04/2025"
+output: pdf_document
+---
+## Pregunta 1
+Si hubiéramos empezado a contar segundos a partir de las 12 campanadas que marcan el inicio de 2018, ¿a
+qué hora de qué día de qué año llegaríamos a los 250 millones de segundos? ¡Cuidado con los años bisiestos!
+```{r}
+is_lap_year = function(y){
+  if (y%%400 == 0){return(TRUE)}
+  else if(y%%100 == 0){return(FALSE)}
+  else if(y%%4 == 0){return(TRUE)}
+  else{return(FALSE)}
+}
+
+get_year_seconds =function(y){
+  if(is_lap_year(y)){
+    return(366*24*3600)
+    
+  }
+  else{return(365*24*3600)}
+}
+
+remain_s = 250e6
+year=2018
+day=1
+hour=0
+minute=0
+second=0
+
+while(remain_s>get_year_seconds(year)){
+  remain_s = remain_s - get_year_seconds(year)
+  year = year + 1
+}
+
+while(remain_s > (24*3600)){
+  remain_s = remain_s - 24*3600
+  day = day+1;
+}
+
+while(remain_s > 3600){
+  remain_s = remain_s - 3600
+  hour = hour + 1
+}
+
+while(remain_s > 60){
+  remain_s = remain_s - 60
+  minute = minute + 1
+}
+
+second = remain_s
+
+message(year, ": day ",day," at ",hour,":",minute,":",second)
+  
+```
+## Pregunta 2
+
+Crea una función en R que resuelva una ecuación de primer grado (de la forma Ax + B = 0). Es decir, los
+parámetros deben ser los coeficientes (en orden) y la función tiene que devolver la solución. Por ejemplo, si
+la ecuación es 2x + 4 = 0, la función tendría que devolver -2.
+Una vez creada la función, utilízala para resolver las siguientes ecuaciones de primer grado:
+- 5x + 3 = 0
+- 7x + 4 = 18
+- x + 1 = 1
+
+```{r}
+solve_first_grade = function(a, b) {
+  if (a == 0) {
+    if (b == 0) return("Solución infinita")
+    else return("Sin solución")
+  }
+  return(-b / a)
+}
+
+solve_first_grade(5, 3)
+solve_first_grade(7, -14)
+solve_first_grade(1, 0)
+```
+
+## Pregunta 3
+
+```{r}
+res = 3 * exp(1)-pi
+round(res, 3)
+```
+
+## Pregunta 4
+
+```{r}
+z = (2 + 3i)^2 / (5 + 8i)
+mod = Mod(z)
+round(mod, 3)
+
+```

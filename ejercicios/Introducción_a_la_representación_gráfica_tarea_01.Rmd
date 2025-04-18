@@ -1,0 +1,11 @@
+---
+title: Introducción a la representación gráfica. Tarea 01
+author: Alberto Simón
+date: "18/04/2025"
+output: pdf_document
+---
+## Pregunta 1
+Con una sola instrucción, dibuja el gráfico de la función $y=x2-3x+ 30$ entre -15y15.  De título, pon “Una parábola”. De etiquetas, en el ejeX pon, en formato matemático, “x”; y en el ejeY, introduce y=x2-3x+ 30, también en formato matemático. Tienes que utilizar la función curve()
+```{r}
+curve(x^2-3*x+30, -15, 15,xlab =expression(x), ylab ="y = x^2-3*x+30", main = "Una parábola")
+```

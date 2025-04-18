@@ -1,0 +1,101 @@
+---
+title: Estructuras de datos en R. Tarea 01
+author: Alberto Simón
+date: "17/04/2025"
+output: pdf_document
+---
+## Pregunta 1
+Dadas las matrices A y B.
+```{r}
+A = matrix(c(1:4,4:1,0,1,0,2,3,0,4,0), nrow = 4, byrow = TRUE)
+B = matrix(c(4:1,0,3,0,4,1:4,0,1,0,2), nrow = 4, byrow = TRUE)
+A
+B
+```
+Se realizan las siguientes operaciones:
+
+$A\cdot B$
+```{r}
+AB =  A %*% B
+AB
+```
+$B\cdot A$
+```{r}
+BA = B %*% A
+BA
+```
+
+$(A\cdot B)^t$
+```{r}
+t_AB = t(B %*% A)
+t_AB
+```
+$(B^t\cdot A)$
+```{r}
+B_tA = t(B) %*% A
+B_tA
+```
+
+$(A\cdot B)^{-1}$
+```{r}
+invAB = solve(A %*% B)
+invAB
+```
+
+$(A^{-1} \cdot B^t)$
+```{r}
+A_invB_t = solve(A) %*% t(B)
+A_invB_t
+```
+# Pregunta 2
+Considera en un vector los números de tu DNI (puedes inventártelos) y llámalo dni.Define el vector en R.
+```{r}
+dni = c(4,5,0,3,3,3,7,7)
+```
+
+Cuadrado de cada elemento:
+```{r}
+dni_cuadrado <- dni^2
+dni_cuadrado
+```
+
+Raíz cuadrada de cada cifra:
+```{r}
+dni_raiz <- sqrt(dni)
+dni_raiz
+```
+
+Suma total:
+```{r}
+dni_suma <- sum(dni)
+dni_suma
+```
+
+## Pregunta 3
+Considera el vector de las letras de tu nombre y apellido. Llámalo name. Define dicho vector en R.
+```{r}
+name = unlist(strsplit("ALBERTOSIMON", split = ""))
+```
+Subvector nombre.
+```{r}
+firstname = name[1:7]
+firstname
+```
+Subvector apellido.
+```{r}
+surname = name[8:length(name)]
+surname
+```
+
+Orden alfabético.
+```{r}
+nameletters = sort(name)
+nameletters
+```
+
+Vector a matriz
+```{r}
+namematrix = matrix(name, nrow = 2, byrow = TRUE)
+namematrix
+```
+
