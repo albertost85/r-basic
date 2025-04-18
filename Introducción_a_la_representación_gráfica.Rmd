@@ -1,0 +1,102 @@
+---
+title: "Representación gráfica"
+author: "asimon"
+date: '`r Sys.Date()`'
+output: pdf_document
+---
+
+# Representación gráfica con R
+## Plot
+La instrucción mínima requiere dos vectores. Si sólo se asigna uno, el vector de ordenadasd toma valores naturales.
+
+```{r}
+y=c(2,6,4,9,-1)
+x=c(1,8,4,-2,4)
+plot(x,y)
+```
+## Plot de funciones
+Si se usa como argumento una función hace la representación gráfica de la misma entre 0 y 1 por defecto.
+```{r}
+f= function(x){sqrt(x)}
+plot(f)
+```
+## Parámetros de la función plot
+No es un parámetro, pero antes de cualquier plot se puede modificar el parámetro mfrow para distribuir gráficos en varias columnas. con ECHO=FALSE se omite la salida intermedia y con fig.align='center' lo centra en la página
+- log = "xy" para indicar el gráfico en escala logarítmica en una o las dos escalas.
+- main = "título",xlab, ylab = Títulos de los ejes. Usando expression("string"), lo maqueta como si fuese latex.
+- pch=1, point character, el caracter elegido a los puntos.
+- cex, tamaño de los carácteres
+- color = "blue", cambia el color. "Color in R" Es un documento que tiene todas las descripciones, y "bg = green" para el interior de puntos con dos colores.
+```{r, fig.height = 3.75, fig.width = 9, fig.align = "center", echo=FALSE}
+par(mfrow = c(1,2))
+plot = plot(exp(1:20), xlab = "Indice", ylab = expression(e^{1:20}), 
+            main = "Escala lineal")
+plotLog = plot(exp(1:20), log = "y", xlab = "Indice", ylab = expression(e^{1:20}), 
+               main = "Escala logaritmica en el eje y")
+par(mfrow = c(1,1))
+```
+- `type`: para elegir el tipo de gráfico que queremos:
+    - `p`: puntos (valor por defecto)
+    - `l`: líneas rectas que unen los puntos (dichos puntos no tienen símbolo)
+    - `b`: líneas rectas que unen los puntos (dichos puntos tienen símbolo). Las líneas no traspasan los puntos
+    - `o`: como el anterior pero en este caso las líneas sí que traspasan los puntos
+    - `h`: histograma de líneas
+    - `s`: histograma de escalones
+    - `n`: para no dibujar los puntos
+    
+- `lty`: para especificar el tipo de línea
+    - "solid" : $1$: línea continua (valor por defecto)
+    - "dashed" : $2$: línea discontinua
+    - "dotted" : $3$: línea de puntos
+    - "dotdashed" : $4$: línea que alterna puntos y rayas
+    
+- `lwd`: para especificar el grosor de las líneas
+- `xlim`: para modificar el rango del eje $X$
+- `ylim`: para modificar el rango del eje $Y$
+- `xaxp`: para modificar posiciones de las marcas en el eje $X$
+- `yaxp`: para modificar posiciones de las marcas en el eje $Y$
+
+```{r, fig.height = 4, fig.width = 9, fig.align = "center"}
+x = (2*(1:20))
+y = (-1)^(1:20)*5*(1:20)
+plot(x,y, main = "Ejemplo de grafico", pch = 8, cex = 1, type = "b", lty = 4, lwd = 4, 
+     xaxp = c(0,40,2), yaxp = c(-100,100,8))
+```
+
+## Añadir elementos al gráfico
+
+Una vez se añaden elementos, ya no se pueden modificar los parámetros del gráfico original.
+Points(x,y) añade puntos. Admite vectores del mismo tamaño. 
+Abline(a,b) añade la recta y=bx+a. Para líneas verticales u horizoneales abline(v=xv) o abline(h=yh)
+text(x, y, labels="", pos=) añade texto adicional en una coordenada. Pos=(1=abajo, 2=izq, 3=arriba 4=derecha 5=centrado  y mal )
+
+```{r, echo = FALSE, fig.width = 9, fig.align = "center"}
+f<-function(x){x^2}
+plot(f,xlim=c(-3,3), col="red", lwd=2, ylab=expression(y=x^2), xlab="x")
+points(20,0, col = "red", cex = 4, pch = 16)
+abline (h = 0:9, v=-3:3, lty="dotted", col="dodgerblue")
+points(0,5, col = "red", cex = 4, pch = 16)
+text(0,5,labels="Abajo = 1", pos=1)
+text(0,5,labels="Izquierda = 4", pos=4)
+```
+
+Se pueden añadir más funciones encima de un plot.
+La función lines crea lineas entre puntos dados
+La función curve sobrepone una función. Entiende expresiones directamente.
+legend(posicion, legend=...) añade una leyenda al gráfico. Como
+```{r}
+f<- function(x){x^2}
+plot(f, xlim = c(-3,3), col="red", lwd = 3)
+lines(-3:3, f(-3:3), lwd=2, lty="dotted", col="steelblue")
+points(-3:3, f(-3:3), lwd=3, pch=19, col="steelblue")
+curve(x^3, col="darkgreen", lwd=2, add = TRUE)
+curve(x^40, col="lightgreen", lwd=2, add = TRUE)
+legend("top",legend=c(expression(x^2),"interpolation",expression(x^3), expression(x^40)), col=c("red","steelblue", "darkgreen", "lightgreen"),lwd = 2, lty=c("solid","dotted") )
+```
+## Otros símbolos
+Segmentos ?segments
+Flechas ?arrows
+Otros ?symbold
+Polítognos ?polygon
+
+
