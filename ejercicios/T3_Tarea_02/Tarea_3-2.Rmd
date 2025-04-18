@@ -1,0 +1,49 @@
+---
+title: "Tarea 3-1"
+author: "asimon"
+date: "2024-09-03"
+output:
+   pdf_document:
+     latex_engine: xelatex
+---
+# Tarea 3.1: Estructura de datos
+
+## Pregunta 1
+
+### Enunciado
+Crea un vector llamado Harry formado por la sucesión de números consecutivos entre el -10 y 27. Pídele a R que devuelva el elemento de índice 7. Escribe el resultado.
+
+### Respuesta
+
+```{r}
+Harry = -10:27
+Harry[7]
+```
+
+## Pregunta 2
+
+### Enunciado
+Da el máximo de la sucesión $100\cdot 2^n - 7\cdot 3^n$, con $n=0,...,200$
+
+### Respuesta
+```{r}
+n = 0:200
+s = 100*2^n-7*3^n
+sprintf("El máximo se encuentra en n=%d, y es %d",n[which(s == max(s))],max(s))
+```
+## Pregunta 3
+
+### Enunciado
+Crea la sucesión de números consecutivos entre 0 y 40. A continuación, crea el vector 3 · 5n − 1 con n = 0, . . . , 40. Ponle como nombre x. Ahora, da el subvector de los elementos que son estrictamente mayores a 3.5.
+
+### Respuesta
+```{r}
+n = 0:40
+x = 3*5^n-1
+# Los elementos mayores a 3.5
+x_sup3p5 = x[x>3.5]
+# Ns para cuyos elementos x es mayor a 3.5
+x_sub3p5_pos = n[x>3.5]
+sprintf("Los elementos mayores 3.5 son [%s] y se encuentran en las posiciones [%s]",
+        paste(x_sup3p5, collapse=" "),paste(x_sub3p5_pos, collapse=" "))
+```
