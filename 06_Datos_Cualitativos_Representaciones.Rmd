@@ -1,0 +1,95 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Representación gráfica de datos cualitativos.
+
+
+## Diagrama de barras
+La instrucción barplot admite como argumento una tabla (de frecuencias absolutas o relativas), y las representa.
+
+Admite parámetros comunes com xlab, ylab, man, col. 
+
+### Multivariante
+Si hay dos variables, éstas se distribuyes verticalmente en la barra. Con el comando beside=TRUE, se colocan horizontalmente una junto a la otra. Para invertir el orden, se invierte el orden de los vectores en la tabla.
+```{r}
+barplot(table(Sexo,Respuestas), beside=TRUE, legend.text=TRUE)
+```
+
+## Diagramas circulares
+Se crean con la instrucción "pie" y la superficie de cada segmento es proporcional a la frecuencia relativa.
+
+Es poco recomendable; cuando hay muchas categorías, es difícil ponderar cual tiene más peso a simple vista.
+
+## Diagramas de mosaico
+
+Se obtiene sustituyendo cada entrada de la tabla de frecuencias por una región rectangular proporcional a su valor. 
+
+Se utiliza la función plot o la función mosaicplot. 
+
+Son especialmente apropiados para una tabla bidimensional.
+
+Incluso de variables mayores, se va dividiendo en areas bien diferenciadas, el ancho de cada una de las cuales representa la frecuencia en la tabla de esa dimensión.
+
+El paquete cotabplot de vcd produce un diagrama de mosaico para cada nivel de la tercera variable.
+
+El paquete mosaic3d de vcdExtra produce un diagrama de mosaico tridimensional en una ventana de una aplicación para gráficos 3D interactivos.
+
+## Ejemplo
+
+Se trabaja sobre el ejemplo HairEyeColor
+
+Aggregar datos: juntar datos de color y pelo sin distinguir por sexo.
+```{r}
+male <- HairEyeColor[,,"Male"]
+female <- HairEyeColor[,,"Female"]
+data <- as.table(male + female)
+data
+```
+
+### Manipulación de datos
+```{r}
+dimnames(data) = list(
+  Pelo = c("Negro", "Marrón", "Pelirrojo", "Rubio"),
+  Ojos = c("Marrones", "Azules", "Pardos", "Verdes")
+  )
+data
+```
+
+### Dibujar diagrama de mosaico
+```{r}
+
+plot(data, main="Mosaico HairEyeColor agrupado")
+```
+### Individuos
+```{r}
+sum(data)
+```
+
+```{r}
+
+marginFreqOjos = colSums(data)
+marginFreqPelo = rowSums(data)
+marginRelFreqOjos = prop.table(marginFreqOjos)
+marginRelFreqPelo = prop.table(marginFreqPelo)
+```
+
+
+### Representación gráfica
+```{r}
+barplot(marginRelFreqOjos, main="Frecuencias relativas color de ojos", ylim=c(0,0.4),
+col=c("brown", "blue", "orange3", "green"))
+barplot(marginRelFreqPelo, main="Frecuencias relativas color de pelo", ylim=c(0,0.5),
+col=c("black", "brown4", "red3", "yellow3"))
+```
+```{r}
+freqrelativasglobales = round(prop.table(data),3)
+freqrelativasmarginalesPelo = round(prop.table(data, margin=1),3)
+freqrelativasmarginalesOjos = round(prop.table(data, margin=2),3)
+freqrelativasglobales
+freqrelativasmarginalesPelo
+freqrelativasmarginalesOjos
+```
+

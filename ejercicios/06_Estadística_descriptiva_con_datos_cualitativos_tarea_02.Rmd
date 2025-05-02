@@ -1,0 +1,6 @@
+---
+title: Estadística descriptiva con datos cualitativos. Tarea 02
+author: Alberto Simón
+date: "02/05/2025"
+output: pdf_document
+---
