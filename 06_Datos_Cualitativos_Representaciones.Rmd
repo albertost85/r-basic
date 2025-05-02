@@ -79,10 +79,12 @@ marginRelFreqPelo = prop.table(marginFreqPelo)
 
 ### Representación gráfica
 ```{r}
+colpelo = c("black", "brown4", "red3", "yellow3")
+colojos = c("brown", "blue", "orange3", "green")
 barplot(marginRelFreqOjos, main="Frecuencias relativas color de ojos", ylim=c(0,0.4),
-col=c("brown", "blue", "orange3", "green"))
+col=colojos)
 barplot(marginRelFreqPelo, main="Frecuencias relativas color de pelo", ylim=c(0,0.5),
-col=c("black", "brown4", "red3", "yellow3"))
+col=colpelo)
 ```
 ```{r}
 freqrelativasglobales = round(prop.table(data),3)
@@ -91,5 +93,10 @@ freqrelativasmarginalesOjos = round(prop.table(data, margin=2),3)
 freqrelativasglobales
 freqrelativasmarginalesPelo
 freqrelativasmarginalesOjos
+```
+
+```{r}
+barplot(freqrelativasmarginalesPelo, beside=TRUE, main="Frecuencias relativas pelo", col=colpelo, legend = dimnames(data)$Pelo, ylim = c(0,0.7))
+barplot(t(freqrelativasmarginalesOjos), beside=TRUE, main="Frecuencias relativas ojos", col=colojos, legend = dimnames(data)$Ojos, ylim = c(0,0.6))
 ```
 

@@ -7,6 +7,15 @@ output: pdf_document
 # Estudio de Bebés Recién Nacidos
 Instala y carga el paquete MASS en R. En él hay una tabla de datos llamada birthwt sobre factores que
 pueden incidir en el peso de los niños al nacer.
+```{r}
+
+library(MASS)
+```
+```{r}
+data = birthwt
+```
+
+
 ## Pregunta 1
 Utiliza str() y head() para explorar la estructura, y con help(), mirar el significado de cada variable.
 ```{r}
@@ -18,54 +27,67 @@ head(birthwt)
 Calcula una tabla de frecuencias relativas marginales de los pares raza de la madre y peso inferior a 2.5 kg
 o no, que permita ver si la raza de la madre influye en el peso del bebé.
 ```{r}
-freqabs = table(birthwt$race, birthwt$bwt < 2500)
-reqsrel = prop.table(table(birthwt$race, birthwt$bwt < 2500), margin = 1)
+tableraceweight = table(birthwt$race, birthwt$bwt < 2500)
+tableraceweight_rel = prop.table(tableraceweight, margin=1)
 ```
 ## Pregunta 3
 Dibuja un diagrama de mosaico de la tabla del ejercicio anterior.
 ```{r}
-
+mosaicplot(tableraceweight_rel,
+           main = "Peso bajo según raza de la madre",
+           xlab = "Raza", ylab = "¿Peso < 2500g?")
 ```
 ## Pregunta 4
 Dibuja un diagrama bidimensional de barras, con las barras organizadas en bloques, que permita visualizar
 la información de los ejercicios anteriores. Aprovecha para poner nombres adecuados a los bloques, colores
 a las barras y añadir una leyenda que explique qué representa cada barra.
 ```{r}
-
+colraces = c("beige", "black", "yellow" )
+barplot(tableraceweight_rel, ylim = c(0,0.5), legend=c("W","B","O"), main="Raza según peso al nacer", col=colraces, beside=TRUE, xlab = "¿Peso < 2500g?")
 ```
 ## Pregunta 5
 ¿Se puede obtener alguna conclusión de la tabla y el diagrama de barras anterior? Argumenta tu respuesta.
-```{r}
+La raza negra presenta diferencias menos acusadas; es decir, una mayor poroporción de bebés por debajo de 2500 g.
 
-```
 ## Pregunta 6
 Repite los cuatro ejercicios anteriores para los pares:
-- madre fumadora o no, 
+- madre fumadora o no, peso inferior a 2.5 kg o no
+```{r}
+tablesmokeight = table(birthwt$smoke, birthwt$bwt < 2500)
+tablesmokeight_rel = prop.table(tablesmokeight, margin=1)
+colsmoke = c("beige", "grey")
+mosaicplot(tablesmokeight_rel,
+           main = "Peso bajo según madre fumadroa",
+           xlab = "¿Madre fumadora?", ylab = "¿Peso < 2500g?")
+barplot(tablesmokeight_rel, ylim = c(0,0.8), legend=c("No fuma","Fuma"), main = "Peso bajo según madre fumadroa", col=colsmoke, beside=TRUE, xlab = "¿Peso < 2500g?")
+```
+
+- madre hipertensa o no, peso inferior a 2.5 kg o no.
 ```{r}
 
+tablehypertenseweight = table(birthwt$ht, birthwt$bwt < 2500)
+tablehypertenseweight_rel = prop.table(tablehypertenseweight, margin=1)
+colsbloodpres = c("lightblue", "blue")
+mosaicplot(tablehypertenseweight_rel,
+           main = "Peso bajo según madre fumadroa",
+           xlab = "¿Madre fumadora?", ylab = "¿Peso < 2500g?")
+barplot(tablehypertenseweight_rel, ylim = c(0,0.8), legend=c("No hipertensa","Hipertensa"), main = "Peso bajo según madre hipertensa", col=colsbloodpres, beside=TRUE, xlab = "¿Peso < 2500g?")
 ```
-- peso inferior a 2.5 kg o no
-```{r}
 
-```
-- madre hipertensa o no
-```{r}
-
-```
-- peso inferior a 2.5 kg o no.
-```{r}
-
-```
 ## Pregunta 7
 Calcula una tabla de frecuencias relativas marginales de la terna raza de la madre, madre fumadora o no y
 peso inferior a 2.5 kg o no, que permita ver si la raza de la madre y su condición de fumadora o no fumadora
 influyen en el peso del bebé.
 ```{r}
-
+tabler3racesmokeweight = table(birthwt$race, birthwt$smoke, birthwt$bwt < 2500)
+tabler3racesmokeweight_rel = prop.table(tabler3racesmokeweight, margin = c(1, 2))
+tabler3racesmokeweight_rel
 ```
 ## Pregunta 8
 Dibuja un diagrama de mosaico de la tabla del ejercicio anterior.
 ```{r}
-
+mosaicplot(tabler3racesmokeweight_rel,
+           main = "Peso bajo según raza y madre fumadora", col = colsmoke,
+           xlab = "Raza", ylab = "¿Peso < 2500g?")
 ```
 
