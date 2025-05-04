@@ -7,7 +7,9 @@ output:
 ---
 
 # Data frame de Iris
+Las instrucciones head o tail permiten mostrar los primeros y los últimos datos del dataframe. 
 
+names y dimnames son equivalentes y devuelven el nombre de las columnas y de las filas
 ```{r}
 df = iris
 head(df, 5)
@@ -24,8 +26,11 @@ df$Petal.Length[1:10]
 df$Species[1:10]
 ```
 
-## Acceso al DF
 
+## Acceso al DF
+Para acceder a los datos de las columna COL de un dataframe df se hace mediante df$COL y se pueden obtener las filas condicionales, por ejemplo, df$COL == "nose" sólo mostrará las líneas correspondientes a COL == NOSE. Se puede combinar con más condiciones. Si el dataframe está cargado, con el tabulador se muestran los nombres de las columnas tras escribir $.
+
+Como el resultado es otro dataframe, también se puede obtener nuevos sub dataframes con nuevas condiciones (la última línea haciendo [c(1,3), c(2,5)]).
 ```{r}
 df[1:10, ]
 df[1:10, 2:4]

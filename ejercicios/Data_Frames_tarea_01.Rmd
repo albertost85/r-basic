@@ -1,0 +1,53 @@
+---
+title: Data Frames en R. Tarea 01
+author: Alberto Simón
+date: "22/04/2025"
+output: pdf_document
+---
+Nota: el enlace suministrado no existe. He utilizado el fichero medals.csv de la carpeta data del curso.
+
+```{r}
+df = read.csv("../data/medals.csv")
+str(df)
+```
+
+
+## Pregunta 1
+¿Cuántos deportistas aparecen en el data frame?
+- No hay campo con el nombre de los deportistas, así que no se puede saber cuántos deportistas distintos hay. Sólo eventos.
+
+```{r}
+print(nrow(df))
+
+```
+## Pregunta 2
+¿Cuántos deportistas han ganado medallas de oro? ¿Cuántos han ganado medallas de plata? ¿Y cuántos de bronce?
+```{r}
+table(df$Medal)
+```
+## Pregunta 3
+¿En cuántos lugares se han hecho olimpiadas de invierno?
+```{r}
+length(unique(df$City))
+```
+## Pregunta 4
+¿Cuántos hombres y cuántas mujeres hay?
+```{r}
+table(df$Event.gender)
+```
+## Pregunta 5
+¿En qué año participaron más deportistas?
+```{r}
+year_table = table(df$Year)
+year_table
+year_table[which.max(year_table)]
+```
+## Pregunta 6
+El campo NOC indica el país del ganador de la medalla. ¿Qué país puede presumir de haber ganado más medallas de oro en los juegos de invierno entre 1960 y 1996?
+```{r}
+subset_df = subset(df, Year >= 1960 & Year <= 1996 & Medal == "Gold")
+tabla_oro = table(subset_df$NOC)
+tabla_oro
+top <- sort(tabla_oro, decreasing = TRUE)[1]
+top
+```

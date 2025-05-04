@@ -1,0 +1,74 @@
+---
+title: Data Frames en Python. Tarea 02
+author: Alberto Simón
+date: "23/04/2025"
+output: pdf_document
+---
+Carga en Python el CSV llamado run.csv que encontrarás en el repositorio del curso.
+```{python}
+import pandas as pd
+import numpy as np
+df = pd.read_csv("../data/run.csv", delimiter = ",", decimal = ".", encoding="utf-8")
+df.head()
+```
+## Pregunta 1
+Indica cuántos estudiantes formaron parte del estudio de deporte.
+```{python}
+students_n = df.shape[0]
+students_n
+```
+
+## Pregunta 2
+Indica cuántos individuos son hombres y cuántos son mujeres.
+```{python}
+gender_counts = df["genero"].value_counts()
+gender_counts
+```
+
+## Pregunta 3
+Calcula el porcentaje medio de variación del pulso por minuto entre antes y después de hacer ejercicio y compara el valor de los que hacen ejercicio habitualmente y los que no. ¿Observas mucha diferencia?
+```{python}
+def pulso_relativo(x):
+  return (x['pulso.despues']-x['pulso.antes'])/x['pulso.antes']
+
+df["variacion_pulso"] = 100 * (df["pulso.despues"] - df["pulso.antes"]) / df["pulso.antes"]
+
+average = df["variacion_pulso"].mean()
+average_sport = df[df["hace.deporte"] == "si"]["variacion_pulso"].mean()
+average_no_sport = df[df["hace.deporte"] == "no"]["variacion_pulso"].mean()
+average, average_sport, average_no_sport
+```
+Bastante diferencia entre los que hacen deporte y los que no.
+
+## Pregunta 4
+Calcula el porcentaje medio de variación del pulso por minuto entre antes y después de hacer ejercicio para los estudiantes que hacen ejercicio habitualmente y compara el valor de los hombres con el de las mujeres.
+¿Observas mucha diferencia?
+```{python}
+deporte_df = df[df["hace.deporte"] == "si"]
+
+deporte_df.groupby('genero').aggregate({
+  'variacion_pulso' : 'mean'
+})
+
+```
+Hay diferencia
+
+## Pregunta 5
+Calcula el porcentaje medio de variación del pulso por minuto entre antes y después de hacer ejercicio para los estudiantes que no hacen ejercicio habitualmente y compara el valor de los fumadores con los no fumadores.
+¿Observas mucha diferencia?
+```{python}
+no_deporte_df = df[df["hace.deporte"] == "no"]
+
+no_deporte_df.groupby('fuma').aggregate({
+  'variacion_pulso' : 'mean'
+})
+```
+Diferencia muy acusada.
+## Pregunta 6
+Calcula el porcentaje medio de variación del pulso por minuto entre antes y después de hacer ejercicio de todos los estudiantes según el tipo de actividad física que realizan. ¿Observas alguna diferencia?
+```{python}
+no_deporte_df.groupby('tipo.actividad').aggregate({
+  'variacion_pulso' : 'mean'
+})
+```
+Es la categoría donde menos variación existe.

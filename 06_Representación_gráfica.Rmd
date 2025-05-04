@@ -1,0 +1,25 @@
+---
+title: "06_Representación_gráfica"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Diagrama de barras
+Cada referencia representa la frecuencia absoluta de una variable.
+## Diagrama circular
+## Diagrama de mosaico
+
+
+```{r}
+library(kableExtra)
+kable(HairEyeColor)
+```
+
+```{r, results='asis'}
+library(xtable)
+sex = factor(c("H", "M", "M", "M", "H", "H", "M", "M"))
+ans = factor(c("S", "N", "S", "S", "S", "N", "N", "S"))
+
+xtable(table(sex, ans))
+```

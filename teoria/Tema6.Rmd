@@ -414,14 +414,14 @@ La función `CrossTable()` del paquete `gmodels` permite producir (especificando
 La leyenda *Cell Contents* explica los contenidos de cada celda de la tabla: la frecuencia absoluta, la frecuencia relativa por filas, la frecuencia relativa por columnas, y la frecuencia relativa global. Esta función dispone de muchos parámetros que permiten modificar el contenido de las celdas, y que podéis consultar en `help(CrossTable)`.
 
 
-<!--
+
 ```{r}
 #Instalamos y cargamos el paquete gmodels
 #install.packages("gmodels")
 library(gmodels)
 CrossTable(Sexo,Respuestas,prop.chisq=FALSE)
 ```
--->
+
 
 
 ## Tablas de frecuencias bidimensionales

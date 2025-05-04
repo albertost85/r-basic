@@ -1,0 +1,77 @@
+---
+title: "06_Multivariante"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Datos multidimensionales
+```{r}
+ans = sample(c("Si", "No"), size = 100, replace = TRUE)
+sex = sample(c("H", "M"), size = 100, replace = TRUE)
+place = sample(c("San Francisco", "Barcelona", "Valencia", "Cobija", "Asturias"), size = 100, replace = TRUE)
+tt <- table(sex,ans,place)
+```
+
+En formato plano, junta la inforamción sin subdividirla en tablas bidimensionales, pudiendo especificar las variables en las filas:
+```{r}
+ff <- ftable(sex,ans,place, col.vars = c("sex", "ans"))
+```
+
+## Trabajar con una tabla de datos importada 
+La tabla HairEyeColor tiene 3 variables cualitativas, creada ya como una tabla de frecuencia absoluta. Son datos agregados ya. No es posible conocer la información individual de cada una de las muestras.
+```{r}
+HairEyeColor
+
+total = sum(HairEyeColor)
+```
+
+El total de individuos de la tabla de datos HairEyeColor es 'r total'.
+
+Se puede obtener la frecuencia relativa respecto al sexo
+```{r}
+prop.table(HairEyeColor, margin = 3)
+```
+
+También se puede obtener la frecuencia relativa respecto a los individuos con esas características
+```{r}
+prop.table(HairEyeColor, margin = c(1,2))
+```
+Para ordenar de otra manera y obtener tablas de color de ojo.
+```{r}
+aperm(HairEyeColor, perm = c("Sex", "Hair", "Eye"))
+```
+La librería KableExtra da formato a las tablas de forma más racional.
+```{r}
+library(kableExtra)
+kable(HairEyeColor)
+```
+
+## Variables cualitativas desde dataframes
+
+Cuando se importan datos en R, éstos suelen estar en formato dataframe. 
+```{r}
+Beb_Energ = read.table("data/EnergyDrink", header=TRUE)
+```
+
+Es un dataframe formado por 122 observaciones, cada una de las cuales consta de 3 variables: estudio, bebe y sexo. Son de tipo factor.
+```{r}
+str(Beb_Energ)
+```
+La función summary() hace un resumen de un dataframe, ofreciendo las frecuencias absolutas que lo componen, cuando las variables son de tipo factor. No devuevle una tabla como "table", sólo devuelve de forma informativa (string) la información. 
+```{r}
+summary(Beb_Energ)
+```
+
+Para obtener las frecuencias absolutas en forma de tabla, se llama a la función apply sobre el dataframe, pero lo calcula sobre cada tabla por separado. Para hacerlo sobre una variable, se utiliza la notación $. 
+```{r}
+tt = apply(Beb_Energ, MARGIN=2,  FUN=table)
+ttsexo = apply(Beb_Energ, MARGIN=2,  FUN=table)$sexo
+```
+
+la función table() devuelve directamente la tabla con sus frecuencias absolutas.
+```{r}
+tt2 = table(Beb_Energ)
+ft = ftable(Beb_Energ)
+```
+
