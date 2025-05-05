@@ -1,0 +1,95 @@
+---
+title: Estadística descriptiva con datos cuantitativos Tarea 01
+author: Alberto Simón
+date: "04/05/2025"
+output: pdf_document
+---
+# Estudio de las Notas según la Carrera
+Instala y carga el paquete MASS en R. En él hay una tabla de datos llamada birthwt sobre factores que
+pueden incidir en el peso de los niños al nacer.
+```{r}
+notas = read.table("../data/grades.txt", header = TRUE)
+head(notas)
+```
+
+
+## Pregunta 1
+Calcula la media, la mediana y la moda redondeada a dos cifras decimales de las notas numéricas de los
+exámenes tanto de forma conjunta como por estudio universitario. ¿En qué grupo observamos la nota más
+alta? ¿Qué grupo está por encima de la media de estudiantes?
+```{r}
+media_total = round(mean(notas$nota, na.rm = TRUE), 2)
+media_total
+mediana_total = round(median(notas$nota, na.rm = TRUE), 2)
+mediana_total
+moda_total = as.numeric(names(which(table(notas$nota) == max(notas$nota))))
+moda_total = round(moda_total, 2)
+moda_total
+summary(notas)
+```
+La moda es un 0. 
+
+```{r}
+moda = function(data){
+  as.numeric(names(which(table(data) == max(table(data)))))[[1]]
+} 
+medias_estudio = aggregate(nota~estudio,data=notas, FUN=mean)
+medias_estudio$nota =round(medias_estudio$nota,2)
+medias_estudio
+medianas_estudio = aggregate(nota~estudio,data=notas, FUN=mean)
+medianas_estudio$nota = round(medianas_estudio$nota,2)
+medianas_estudio
+modas_estudio = aggregate(nota~estudio,data=notas, FUN=moda)
+modas_estudio$nota = round(modas_estudio$nota,2)
+modas_estudio
+```
+
+```{r}
+maxnota = notas$nota[which(notas$nota == max(notas$nota))]
+maxnotaestudio = notas$estudio[which(notas$nota == max(notas$nota))]
+```
+La nota máxima de `r maxnota` se da en `r maxnotaestudio`
+
+
+## Pregunta 2
+¿En qué grupo observamos más variación de notas? Justifica tu respuesta.
+```{r}
+varianza_estudio = aggregate(nota~estudio,data=notas, FUN=var)
+varianza_estudio
+```
+
+
+## Pregunta 3
+¿Hay mucha diferencia entre el grupo que has respondido en el ejercicio 1 y en el ejercicio 2? Intenta dar
+una explicación objetiva del suceso.
+
+La varianza de matemáticas es ligeramente superior a la de industriales. Hay más notas alejadas de la media (3,58 y 4,22 respectivamente) en matemáticas que en industriales.
+
+## Pregunta 4
+Dibuja en un único gráfico los cuatro diagramas de caja, uno para cada grupo. Añade también la nota media,
+pon nombre, título y color al gráfico para documentarlo correctamente.
+
+```{r}
+boxplot(nota~estudio, data=notas, main="Distribución de notas en estudios universitarios", 
+        col=c("lightblue", "aquamarine", "lightgreen", "cyan"))
+points(medias_estudio, pch=15, col="black")
+```
+
+
+## Pregunta 5
+¿Observas algunos valores atípicos en el boxplot anterior? ¿A qué grupo pertence?
+
+Sí, las notas muy altas son valores atípicos en industriales, informática y telemática.
+
+## Pregunta 6
+Indica a partir del boxplot anterior en qué grupo observamos más variedad de notas.
+
+En matemáticas se observan notas con mayor variabilidad, tanto entre el primer y tercer cuartil como entre los extremos.
+
+
+## Pregunta 7
+En base a todo lo anterior, ¿puedes afirmar de forma estadística que el examen de carrera ha ido mejor en
+algún estudio que en los demás?
+
+En matemáticas, ya que la mitad de los alumnos ha obtenido una nota superior que en el resto de carreras.
+

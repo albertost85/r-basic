@@ -1,0 +1,127 @@
+---
+title: "09_Análisis_de_datos_cuantitativos_agrupados_tarea_01"
+author: Alberto Simón
+date: "04/05/2025"
+output: pdf_document
+---
+# Reglas de Agrupación de Datos Numéricos
+Los procesos son muy similares, así que defino una función común
+```{python}
+def generar_clases_y_marcas(data, k):
+    
+    # Precisión por defecto de 0.1
+    min_val = np.min(data)
+    if min_val.is_integer():
+        precision = 1
+    else:
+        decimals = str(min_val).split('.')
+        if len(decimals) > 1:
+            precision = 10 ** (-len(decimals[1]))
+        else:
+            precision = 0.1  # Default precision
+    
+    # Amplitud tromada a intervalos iguales
+    data_range = np.max(data) - np.min(data)
+    A = data_range / k
+    # Redondeo de la amplitud según la precisión
+    A = np.ceil(A / precision) * precision
+    # Salvo que sea exacto
+    if A == data_range / k:
+        A += precision
+    
+    # Los límites, con  un medio de la precisión
+    L1 = np.min(data) - 0.5 * precision
+    L = L1 + A * np.arange(k + 1)
+    
+    # Las marcas de clase como punto medio
+    X = (L[:-1] + L[1:]) / 2
+    
+    return L, X
+```
+
+
+Se importan los datos y se transforman a numpy.
+```{python}
+import numpy as np
+import pandas as pd
+
+crab = pd.read_csv("../data/datacrab.txt", delimiter=" ", decimal=".", encoding="utf-8")
+weight = crab['weight'].to_numpy()
+
+print(crab['weight'].describe())
+```
+
+
+## Pregunta 1
+Da el algoritmo para reproducir el proceso de generación de clases y sus marcas donde el número de clases
+ha sido obtenido con la regla de la Scott en Python.
+```{python}
+def scott(data):
+    num_data = len(data)
+    bin_width = 3.5 * np.std(data) / np.power(num_data, 1/3)
+    num_bins = int(np.ceil((np.max(data) - np.min(data)) / bin_width))
+    print(num_bins)
+    return num_bins
+
+print("Regla de Scott")
+K_scott = scott(weight)
+L_scott, X_scott = generar_clases_y_marcas(weight, K_scott)
+print("Divisiones:", L_scott)
+print("Marcas de clase:", X_scott)
+
+```
+
+## Pregunta 2
+Da el algoritmo para reproducir el proceso de generación de clases y sus marcas donde el número de clases
+ha sido obtenido con la regla de la raíz en Python.
+```{python}
+def raiz(data):
+   num_data = len(data)
+   num_bins = int(np.ceil(np.sqrt(num_data)))    
+   print(num_bins)
+   return num_bins
+   
+print("Regla de la raíz")
+K_raiz = raiz(weight)
+L_raiz, X_raiz = generar_clases_y_marcas(weight, K_raiz)
+print("Divisiones:", L_raiz)
+print("Marcas de clase:", X_raiz)
+```
+
+## Pregunta 3
+Da el algoritmo para reproducir el proceso de generación de clases y sus marcas donde el número de clases
+ha sido obtenido con la regla de Sturges en Python.
+```{python}
+def sturges(data):
+   # para numero datos mayores de 30
+   num_data = len(data)
+   num_bins = 1 + int(np.log2(num_data))
+   print(num_bins)
+   return num_bins
+ 
+print("Regla de Sturges")
+K_sturges = sturges(weight)
+L_sturges, X_sturges = generar_clases_y_marcas(weight, K_sturges)
+print("Divisiones:", L_sturges)
+print("Marcas de clase:", X_sturges)
+```
+
+## Pregunta 4
+Da el algoritmo para reproducir el proceso de generación de clases y sus marcas donde el número de clases
+ha sido obtenido con la regla de la Freedman-Diaconis en Python.
+```{python}
+def freedman_diaconis(data):
+   num_data = len(data)
+   irq = np.percentile(data, 75) - np.percentile(data, 25)
+   bin_width = 2 * irq / np.power(num_data, 1/3)
+   num_bins = int((np.max(data) -  np.min(data)) / bin_width)  + 1
+   print(num_bins)
+   return num_bins
+   
+print("Regla de Freedman-Diaconis")
+K_fd = sturges(weight)
+L_fd, X_fd = generar_clases_y_marcas(weight, K_fd)
+print("Divisiones:", L_fd)
+print("Marcas de clase:", X_fd)
+```
+
