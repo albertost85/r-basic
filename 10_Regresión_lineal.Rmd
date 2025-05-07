@@ -16,7 +16,7 @@ $$err = \sum_{i=1}^n(y_i-\tilde{y}_i)^2$$ sea mínima
 ## Ejemplo
 Trabajaremos con las variables `fat` y `weight`.
 ```{r}
-body = read.table("../data/bodyfat.txt", header = TRUE)
+body = read.table("data/bodyfat.txt", header = TRUE)
 body2 = body[,c(2,4)]
 names(body2) = c("Grasa","Peso")
 str(body2)
@@ -24,48 +24,20 @@ plot(body2)
 ```
 
 
-## Calculando la recta de regresión
+Si organizamos todos los datos en un único dataframes en vez de en dos vectores o por separado, la organización de datos es más cómoda. Si los vectores `y` y `x` son, en este orden, la primera y la segunda columna de un data frame de dos variables, entonces es suficiente aplicar la función `lm` al data frame. 
 
-Para calcular la <l class = "definition">recta de regresión</l> con R de la familia de puntos $(x_i,y_i)_{i=1,\dots,n}$, si `x` es el vector $(x_i)_{i=1,\dots,n}$ e `y` es el vector $(y_i)_{i=1,\dots,n}$, entonces, su recta de regresión se calcula mediante la instrucción
-
-<div class = "aligncenter">
-`lm(y~x)`
-</div>
-
-Cuidado con la sintaxis: primero va el vector de las variables dependientes y, seguidamente después de una tilde `~`, va el vector de las variables independientes.
-
-Esto se debe a que R toma el significado de la tilde como "en función de". Es decir, la interpretación de `lm(y~x)` en R es "la recta de regresión de $y$ en función de $x$".
-
-## Calculando la recta de regresión
+En general, si `x` e `y` son dos variables de un data frame, para calcular la recta de regresión de `y` en función de `x` podemos usar la instrucción `lm(y~x, data = data fame)` La tilde significa y en función de x.
 
 
-Si los vectores `y` y `x` son, en este orden, la primera y la segunda columna de un data frame de dos variables, entonces es suficiente aplicar la función `lm` al data frame. 
-
-En general, si `x` e `y` son dos variables de un data frame, para calcular la recta de regresión de `y` en función de `x` podemos usar la instrucción
-
-<div class = "aligncenter">
-`lm(y~x, data = data fame)`
-</div>
-
-## Ejemplo 1
 
 ```{r}
 lm(body2$Peso~body2$Grasa) #Opción 1
 lm(Peso~Grasa, data = body2) #Opción 2
 ```
-
-## Ejemplo 1
-
-<div class = "example">
-Como podéis observar, las dos formas de llamar a la función dan exactamente lo mismo. Ninguna es mejor que la otra.
-
-El resultado obtenido en ambos casos significa que la recta de regresión para nuestros datos es 
+El resultado obtenido  significa que la recta de regresión para nuestros datos es 
 $$y = 2.151x+137.738$$
 
-Ahora, podemos superponer esta recta a nuestro gráfico anterior haciendo uso de la función `abline()`.
-</div>
-
-## Ejemplo 1
+## Representar la recta de regresión
 
 ```{r}
 plot(body2)
