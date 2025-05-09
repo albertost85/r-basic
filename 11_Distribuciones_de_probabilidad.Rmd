@@ -1,0 +1,6 @@
+---
+title: "Introducción a las distribuciones de probabilidad"
+output:
+  pdf_document: default
+  html_document: default
+---
