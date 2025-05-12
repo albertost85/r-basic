@@ -792,10 +792,8 @@ ax.hist(r, density = True, histtype = 'stepfilled', alpha = 0.2)
 ax.legend(loc = "best", frameon= False)
 plt.show()
 ```
-
-
-
 ## Distribución Normal
+Es la distribución más común, con una distribución en forma de campana de Gauss.
 
 Una v.a. $X$ tiene distribución normal o gaussiana de parámetros $\mu$ y $\sigma$, $X\sim\mathcal{N}(\mu,\sigma)$ si su función de densidad es $$f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\quad \forall x\in\mathbb{R}$$
 
@@ -803,18 +801,30 @@ La gráfica de $f_X$ es conocida como la Campana de Gauss
 
 Cuando $\mu = 0$ y $\sigma = 1$, diremos que la v.a. $X$ es estándar y la indicaremos usualmente como $Z$, la cual tendrá función de densidad
 $$f_Z(z)=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\quad \forall z\in\mathbb{R}$$
-
-## Distribución Normal
-
+La integral de la expresión anterior da un va lor igual a 1. Es una integral impropia.
 - **Esperanza** $E(X) = \mu$
-- **Varianza** $Var(X) = \sigma^2$
+- **Varianza** $Var(X) = \sigma^2
 
 En particualr, si $Z$ sigue una distribución estándar,
 
 - **Esperanza** $E(X) = 0$
 - **Varianza** $Var(X) = 1$
 
-## Distribución Normal
+## Estandarización de una variable aleatoria normal.
+
+$F_Z$ no tiene expresión conocida.
+
+Se puede calcular con cualquier programa, como por ejemplo R, o bien a mano utilizando las [tablas de la $\mathcal{N}(0,1)$](https://github.com/joanby/r-basic/blob/master/teoria/TablaNormal.pdf)
+
+Con las tablas se pueden calcular tanto probabilidades como cuantiles
+
+
+<l class = "prop">Estandarización de una v.a. normal. Si $X$ es una v.a. $\mathcal{N}(\mu,\sigma)$, entonces $$Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)$$
+
+Las probabilidades de una normal estándar $Z$ determinan las de cualquier $X$ de tipo $\mathcal{N}(\mu,\sigma)$:
+
+$$p(X\le x)=p\left(\frac{X-\mu}{\sigma}\le\frac{x-\mu}{\sigma}\right)=p\left(Z\le\frac{x-\mu}{\sigma}\right)$$
+
 
 ```{r, echo = FALSE}
 par(mfrow = c(1,2))
@@ -831,32 +841,13 @@ plot(z_scores, dvalues, ylab = "", xlab= "",
      main = "Función de distribución de una N(0,1)", ylim = c(0,1))
 par(mfrow = c(1,1))
 ```
+El punto donde pasa de cóncava a convexa representa el punto de la desviación típica.
 
-## Distribución Normal
 
-El código de la distribución Normal:
+### Ejemplo
 
 - En `R` tenemos las funciones del paquete `stats`: `dnorm(x, mean, sd), pnorm(q,  mean, sd), qnorm(p,  mean, sd), rnorm(n,   mean, sd)` donde `mean` es la media y `sd` es la desviación estándar de la normal $N(\mu, \sigma)$.
 - En `Python` tenemos las funciones del paquete `scipy.stats.normal`: `pdf(k, mu, scale), cdf(k,  mu, scale), ppf(q,  mu, scale), rvs(n,  mu, scale)`  donde `mu` es la media y `scale` es la desviación estándar de la normal $N(\mu, \sigma)$.
-
-
-## Distribución Normal
-
-<l class = "prop">Estandarización de una v.a. normal. Si $X$ es una v.a. $\mathcal{N}(\mu,\sigma)$, entonces $$Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)$$
-
-Las probabilidades de una normal estándar $Z$ determinan las de cualquier $X$ de tipo $\mathcal{N}(\mu,\sigma)$:
-
-$$p(X\le x)=p\left(\frac{X-\mu}{\sigma}\le\frac{x-\mu}{\sigma}\right)=p\left(Z\le\frac{x-\mu}{\sigma}\right)$$
-
-## Distribución Normal
-
-$F_Z$ no tiene expresión conocida.
-
-Se puede calcular con cualquier programa, como por ejemplo R, o bien a mano utilizando las [tablas de la $\mathcal{N}(0,1)$](https://github.com/joanby/r-basic/blob/master/teoria/TablaNormal.pdf)
-
-Con las tablas se pueden calcular tanto probabilidades como cuantiles
-
-## Distribución Normal en R y Python
 
 Si a la hora de llamar a alguna de las 4 funciones siguientes: `dnorm`, `pnorm`, `qnorm` o `rnorm` no especificásemos los parámetros de  la media ni la desviación típica, R entiende que se trata de la normal estándar: la $\mathcal{N}(0,1)$.
 
@@ -864,43 +855,34 @@ Es decir, R interpreta $\mu = 0$ y $\sigma = 1$
 
 En Python ocurre exactamente lo mismo.
 
-## Otras distribuciones importantes
 
-- La distribución $\chi^2_k$, donde $k$ representa los grados de libertad de la misma y que procede de la suma de los cuadrados de $k$ distribuciones normales estándar independientes:
+
+
+
+
+## Distribución $\chi^2$
+
+En la distribución $\chi^2_k$, donde $k$ representa los grados de libertad de la misma y que procede de la suma de los cuadrados de $k$ distribuciones normales estándar independientes:
 
 $$X = Z_1^2 + Z_2^2+\cdots + Z_k^2\sim \chi_k^2$$
 
-## Otras distribuciones importantes
+## Distribución T de student
 
-- La distribución $t_k$ surge del problema de estimar la media de una población normalmente distribuida cuando el tamaño de la muestra es pequeña y procede del cociente
+La distribución $t_k$ surge del problema de estimar la media de una población normalmente distribuida cuando el tamaño de la muestra es pequeña y procede del cociente
 
 $$T = \frac{Z}{\sqrt{\chi^2_k/k}}\sim T_k$$
 
-## Otras distribuciones importantes
+## Distribución F de Fisher
 
-- La distribución $F_{n_1,n_2}$ aparece frecuentemente como la distribución nula de una prueba estadística, especialmente en el análisis de varianza. Viene definida como el cociente
+La distribución $F_{n_1,n_2}$ aparece frecuentemente como la distribución nula de una prueba estadística, especialmente en el análisis de varianza. Viene definida como el cociente
 
 $$F = \frac{\chi^2_{n_1}/n_1}{\chi^2_{n_2}/n_2}\sim F_{n_1,n_2}$$
 
-## Distribuciones continuas en R
-
-Distribución |  Instrucción en R |  Instrucción en Python |  Parámetros                                
---------------------|--------------------|--------------------|--------------------
-Uniforme | `unif` | `scipy.stats.uniform` | mínimo y máximo
-Exponencial | `exp` | `scipy.stats.expon` | $\lambda$
-Normal | `norm` | `scipy.stats.normal` | media $\mu$, desviación típica $\sigma$
-Khi cuadrado | `chisq` | `scipy.stats.chi2` | grados de libertad
-t de Student | `t` | `scipy.stats.t` | grados de libertad
-F de Fisher | `f` | `scipy.stats.f` | los dos grados de libertad
-
-## Otras distribuciones conocidas
-
-- Distribución de Pareto (Power Law)
-- Distribución Gamma y Beta
-- Distribución Log Normal
-- Distribución de Weibull
-- Distribución de Cauchy
-- Distribución Exponencial Normal
-- Distribución Von Mises
-- Distribución Rayleigh
-- ...
+## Distribución de Pareto (Power Law)
+## Distribución Gamma y Beta
+## Distribución Log Normal
+## Distribución de Weibull
+## Distribución de Cauchy
+## Distribución Exponencial Normal
+## Distribución Von Mises
+## Distribución Rayleigh
