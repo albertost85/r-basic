@@ -1,0 +1,1370 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={11\_Introducción a las distribuciones de probabilidad},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{11\_Introducción a las distribuciones de probabilidad}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introducciuxf3n-a-las-distribuciones-de-probabilidad}{%
+\section{Introducción a las distribuciones de
+probabilidad}\label{introducciuxf3n-a-las-distribuciones-de-probabilidad}}
+
+\begin{itemize}
+\tightlist
+\item
+  En el curso de inferencia se amplían los datos. \#\# Conceptos básicos
+\end{itemize}
+
+\hypertarget{experimento-aleatorio}{%
+\subsubsection{Experimento aleatorio}\label{experimento-aleatorio}}
+
+Es la experiencia y no se conoce el resultado del mismo a ciencia cierta
+Ejemplo: sacar
+
+\hypertarget{suceso-muestral}{%
+\subsubsection{Suceso muestral}\label{suceso-muestral}}
+
+Cada uno de los posibles resultados del experimento aletorio. Depende
+fuertemente del experimento. En un experimento de tirar 2 monedas, los
+sucesos muestrales pueden ser CC CX XX XC, pero si se define como tirar
+1 moneda, estos son C o X.
+
+\hypertarget{espacio-muestral-omega}{%
+\subsubsection{\texorpdfstring{Espacio muestral
+\(\Omega\)}{Espacio muestral \textbackslash Omega}}\label{espacio-muestral-omega}}
+
+Conjunto formado por todos los sucesos elementales del experimento
+aleatorio.
+
+A modo de divagación, tirar una moneda 2 veces podría asimilarse a las 2
+dimensiones, y el vector de resultados tiene los valores \{C,X\} Por lo
+tanto los resultados en 2 dimensiones son el producto vectorial de esos
+valores \{C,X\}x\{C,X\} = \{CC,CX,XC,XX\}.
+
+\hypertarget{operaciones-con-sucesos}{%
+\subsection{Operaciones con sucesos}\label{operaciones-con-sucesos}}
+
+\hypertarget{probabilidad}{%
+\subsection{Probabilidad}\label{probabilidad}}
+
+Sea \(\Omega\) el espacio muestral de un experimento aleatorio.
+Suponiendo que \(\Omega\) es \textbf{finito}, una probabilidad sobre el
+dominio \(\Omega\) es una aplicación
+
+\[p: \mathcal{P}(\Omega)\longrightarrow [0,1]\]
+
+Escribiremos \(p(a)\) en vez de \(p(\{a\})\)
+
+\hypertarget{variable-aleatoria}{%
+\subsection{Variable aleatoria}\label{variable-aleatoria}}
+
+Variable aleatoria. Una variable aleatoria (v.a.) sobre \(\Omega\) es
+una aplicación \[X: \Omega\longrightarrow \mathbb{R}\] que asigna a cada
+suceso elemental \(\omega\) un número real \(X(\omega)\)
+
+Puede entenderse como una descripción numérica de los resultados de un
+experimento aleatorio
+
+Dominio de una variable aleatoria. \(D_X\), es el conjunto de los
+valores que puede tomar
+
+\hypertarget{sucesos-de-variables-aleatorias}{%
+\subsection{Sucesos de variables
+aleatorias}\label{sucesos-de-variables-aleatorias}}
+
+Una variable aleatoria puede definir sucesos, de los cuales queremos
+conocer la probabilidad \(p\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(p(X=a) = p(\{\omega\in\Omega \ |\  X(\omega) = a\})\) Probabilidad
+  de todos los elementos omega que forman parte del espacio muestral
+  Omega, cuya probabilidad sea igual al valor a.
+\item
+  \(p(X<b) = p(\{\omega\in\Omega \ |\  X(\omega) < b\})\)
+\item
+  \(p(X\le b) = p(\{\omega\in\Omega \ |\  X(\omega) \le b\})\)
+\item
+  \(p(a<X) = p(\{\omega\in\Omega \ |\  a<X(\omega)\})\)
+\item
+  \(p(a\le X) = p(\{\omega\in\Omega \ |\  a\le X(\omega)\})\)
+\item
+  \(p(a\le X\le b) = p(\{\omega\in\Omega \ |\  a\le X(\omega) \le b\})\)
+\item
+  \(p(a< X< b) = p(\{\omega\in\Omega \ |\  a< X(\omega) < b\})\)
+\item
+  \(p(X\in A) = p(\{\omega\in\Omega \ |\  X(\omega)\in A\})\)
+\end{itemize}
+
+\hypertarget{funciuxf3n-de-distribuciuxf3n}{%
+\subsection{Función de
+distribución}\label{funciuxf3n-de-distribuciuxf3n}}
+
+Con la variable aleatoria definida se pueden estudiar funciones de
+distribución \(X\). Es una función\\
+\[F:\mathbb{R}\longrightarrow [0,1]\] definida por \[F(x)=p(X\le x)\],
+deonde x es un elemento del dominio de la variable aleatoria.
+
+Es un valor acumulado que devuelve la probabilidad de todos los valores
+inferiores
+
+Para notar la función de probabilidad de un valor por la izquierda (no
+inluido):
+
+\[ F(a^-) = lim_{x\rightarrow a^-}F(x)= \]
+
+\hypertarget{propiedades-de-la-funciuxf3n-de-distribuciuxf3n}{%
+\subsection{Propiedades de la función de
+distribución}\label{propiedades-de-la-funciuxf3n-de-distribuciuxf3n}}
+
+\begin{itemize}
+\tightlist
+\item
+  No tiene por qué ser continua, el límite por la izquierda y la derecha
+  no tiene por qué coincidir.
+\item
+  \(p(X\le a)=F(a)\)
+\item
+  \(p(X<a)=\lim_{b\rightarrow a,\  b<a}p(X\le b) = \lim_{b\rightarrow a,\  b<a} F(b) = F(a^-)\)
+\item
+  \(p(X=a) = p(X\le a)-p(X<a)=F(a)-F(a^-)\)
+\item
+  \(p(a\le X\le b) = p(X\le b)-p(X< a)=F(b)-F(a^-)\)
+\end{itemize}
+
+\hypertarget{cuantiles}{%
+\subsection{Cuantiles}\label{cuantiles}}
+
+Cuantil de orden \(p\) de una v.a. \(X\). Es el \(x_p\in\mathbb{R}\) más
+pequeño tal que \(F(x_p)\ge p\)
+
+Nótese que la mediana es el cuantil de orden 0.5. Responde a la pregunta
+¿A partir de qué valor (el valor más pequeño para) la probabilidad es
+mayor o igual a 0.5?
+
+\hypertarget{variable-aleatoria-discreta}{%
+\subsection{Variable aleatoria
+discreta}\label{variable-aleatoria-discreta}}
+
+Variable aleatoria discreta. Una v.a.
+\(X:\Omega\longrightarrow \mathbb{R}\) es discreta cuando su dominio
+\(D_X\) es finito o un subconjunto de \(\mathbb{N}\) .
+
+Función de probabilidad. Es la función
+\(f:\mathbb{R}\longrightarrow[0,1]\) definida por \[f(x) = p(X=x)\]
+
+Nótese que fuera del dominio, la función de probabilidad vale 0.
+\(f(x)=0\) si \(x\not\in D_X\). Por tanto, interpretaremos la función de
+probabilidad como la función sobre el dominio, particularmente del
+experimento, ya que sobre valores fuera del dominio ésta no variará.
+\[f:D_X\longrightarrow [0,1]\]
+
+\hypertarget{esperanza}{%
+\subsection{Esperanza}\label{esperanza}}
+
+Esperanza de una v.a. discreta. Sea \(f:D_X\longrightarrow[0,1]\) la
+función de probabilidad de \(X\), entonces la esperanza respecto de la
+función de probabilidad es la suma ponderada de los elementos de
+\(D_X\), multiplicando cada elemento \(x\) de \(D_X\) por su
+probabilidad, \[E(X) = \sum_{x\in D_X}x\cdot f(x)\]
+
+Se utiliza sobre transformaciones. Si se generaliza sobre una función
+sobre g sobre todos los elementos del dominio, es el valor esperado de
+esa función \(g:D_X\longrightarrow \mathbb{R}\) es una aplicación
+\[E(g(X))=\sum_{x\in D_X}g(x)\cdot f(x)\]
+
+\hypertarget{varianza}{%
+\subsection{Varianza}\label{varianza}}
+
+Varianza de una v.a. discreta. Sea \(f:D_X\longrightarrow[0,1]\) la
+función de probabilidad de \(X\), entonces la varianza respecto de la
+función de probabilidad es el valor esperado de la diferencia al
+cuadrado entre \(X\) y su valor medio \(E(X)\),
+\[Var(X)= E((X-E(X))^2) \]
+
+La varianza mide como de variados son los resultados de \(X\) respecto
+de la media
+
+Si \(X\) es una v.a. discreta y \(g:D_X\longrightarrow \mathbb{R}\) una
+función, \[Var(g(X))=E((g(X)-E(g(X)))^2)=E(g(X)^2)-(E(g(X)))^2\]
+
+\hypertarget{desviaciuxf3n-tuxedpica}{%
+\subsection{Desviación típica}\label{desviaciuxf3n-tuxedpica}}
+
+Desviación típica de una v.a. discreta. Sea
+\(f:D_X\longrightarrow[0,1]\) la función de probabilidad de \(X\),
+entonces la desviación típica respecto de la función de probabilidad es
+\[\sigma(X)=\sqrt{Var(X)}\]
+
+Las unidades de la varianza son las de \(X\) al cuadrado. En cambio, las
+de la desviación típica son las mismas unidades que las de \(X\)
+
+Si \(X\) es una v.a. discreta y \(g:D_X\longrightarrow \mathbb{R}\) una
+función, \[\sigma(g(X))=\sqrt{Var(g(X))}\]
+
+\hypertarget{sesgo}{%
+\subsection{Sesgo}\label{sesgo}}
+
+Dado un conjunto de datos numéricos, un primer análisis consiste en
+evaluar si se distribuyen de forma normal.
+
+Una distribución normal se concentra en torno a un valor (la media).
+
+El sesgo mide qué tan simétrica es una distribución en torno a un valor
+central.
+
+Hay distintas definiciones de sesgo.
+
+Medida de orden 3 de Pearson es una medida de sesgo ampliamente
+utilizada, pero no es la única.
+
+También el coeficiente de curtosis, que da una medida de las longitud de
+las colas.
+
+Visualmente, si la media y la moda no se alinean con la mediana, se
+produce sesgo (positivo, cola alargada a la derecha, o negativo)
+
+\hypertarget{distribuciones-de-probabilidad}{%
+\section{Distribuciones de
+probabilidad}\label{distribuciones-de-probabilidad}}
+
+\hypertarget{distribuciuxf3n-de-probabilidad}{%
+\subsection{Distribución de
+probabilidad}\label{distribuciuxf3n-de-probabilidad}}
+
+Tanto R como Python tienen 4 instrucciones que permiten trabajar con
+cualquier distribución de probabilidad. En R, se sustituye ``va'' por la
+distribución en cuestion: dnorm dbern etc. en python, se accede primero
+a la distribución y luego al método: norm.pmf\ldots{}
+
+\begin{itemize}
+\item
+  \texttt{dva(x,...)}: Función de densidad o de probabilidad \(f(x)\) de
+  la variable aleatoria para el valor \(x\) del dominio de definición.
+\item
+  Python: - \texttt{pmf(k,...)} o \texttt{pdf(x,...)}: Función de
+  probabilidad \(f(k)\) o de densidad \(f(x)\) de la variable aleatoria
+  para los valores \(k\) o \(x\) del dominio.
+\item
+  \texttt{pva(x,...)}: Función de distribución \(F(x)\) de la variable
+  aleatoria para el valor \(x\) del dominio de definición.
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{cdf(x,...)}: Función de distribución \(F(x)\) de la
+      variable aleatoria para el valor \(k\) del dominio.
+    \end{itemize}
+  \end{itemize}
+\item
+  \texttt{qva(p,...)}: Cuantil \(p\)-ésimo de la variable aleatoria (el
+  valor de \(x\) más pequeño tal que \(F(x)\geq p\)).
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{ppf(p,...)}: Cuantil \(p\)-ésimo de la variable aleatoria
+      (el valor de \(x\) más pequeño tal que \(F(x)\geq p\)).
+    \end{itemize}
+  \end{itemize}
+\item
+  \texttt{rva(n,...)}: Generador de \(n\) observaciones siguiendo la
+  distribución de la variable aleatoria.
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{rvs(size,...)}: Generador de \(size\) observaciones
+      siguiendo la distribución de la variable aleatoria.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+También vale la pena conocer la función
+\texttt{stats(moments=\textquotesingle{}mvsk\textquotesingle{})} que nos
+devuelve cuatro valores con los estadísticos de la media \texttt{m}, la
+varianza \texttt{v}, el sesgo \texttt{s} y la curtosis \texttt{k} de la
+distribución.
+
+\hypertarget{distribuciones-discretas}{%
+\subsection{Distribuciones discretas}\label{distribuciones-discretas}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_de_Bernoulli}{Bernoulli}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_binomial}{Binomial}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_geométrica}{Geométrica}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_hipergeométrica}{Hipergeométrica}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_de_Poisson}{Poisson}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_binomial_negativa}{Binomial
+  Negativa}
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-de-bernoulli}{%
+\subsection{Distribución de
+Bernoulli}\label{distribuciuxf3n-de-bernoulli}}
+
+Las variables de bernouilly son binarias, miden éxito o fracaso. Son
+valores binominales así que sacar cara o cruz se pueden asimilar a éxito
+o fracaso. INcluso aprender o suspender, pudiendo considerarse ``éxito''
+el suspenso, en función del experimento.
+
+Si \(X\) es variable aleatoria que mide el ``número de éxitos'' y se
+realiza un único experimento con dos posibles resultados (éxito, que
+toma valor 1, o fracaso, que toma valor 0), diremos que \(X\) se
+distribuye como una Bernoulli con parámetro \(p\)
+
+\[X\sim \text{Be}(p)\]
+
+donde \(p\) es la probabilidad de éxito y \(q = 1-p\) es la probabilidad
+de fracaso.
+
+\begin{itemize}
+\tightlist
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = \{0,1\}\)
+\item
+  La \textbf{función de probabilidad} vendrá dada por
+  \[f(k) = p^k(1-p)^{1-k} =  \left\{
+  \begin{array}{rl}
+     p & \text{si } k=1 
+  \\ 1-p & \text{si } k=0
+  \\ 0 & \text{en cualquier otro caso}
+  \end{array}
+  \right.\]
+\end{itemize}
+
+\hypertarget{ejemplo}{%
+\subsubsection{Ejemplo}\label{ejemplo}}
+
+Sea x una función de Bernouilli con una moneda trucada cuya probabilidad
+de éxito (cara) es de 0.7. p es la distribución que modela la
+probabilidad de obtener una cara usando una moneda trucada
+\[ X = Be(p=0,7)\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Rlab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rlab 4.0 attached.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Rlab'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     dexp, dgamma, dweibull, pexp, pgamma, pweibull, qexp, qgamma,
+##     qweibull, rexp, rgamma, rweibull
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:datasets':
+## 
+##     precip
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_cruz }\OtherTok{=} \FunctionTok{dbern}\NormalTok{(}\DecValTok{0}\NormalTok{,}\AttributeTok{prob =} \FloatTok{0.7}\NormalTok{)}
+\NormalTok{prob\_cara }\OtherTok{=} \FunctionTok{dbern}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{prob =} \FloatTok{0.7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+La probabilidad de obtener cara es de 0.7
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{función de distribución} vendrá dada por \[F(x) = \left\{
+  \begin{array}{rl}
+     0 & \text{si } x<0 
+  \\ 1-p & \text{si } 0\le x<1
+  \\ 1 & \text{si } x\ge 1
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = p\)
+\item
+  \textbf{Varianza} \(Var(X) = pq\)
+\end{itemize}
+
+El código de la distribución de Beroulli:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{Rlab}:
+  \texttt{dbenr(x,prob),\ pbenr(q,prob),\ qbenr(p,prob),\ rbenr(n,\ prob)}
+  donde \texttt{prob} es la probabilidad de éxito.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.bernoulli}:
+  \texttt{pmf(k,p),\ cdf(k,p),\ ppf(q,p),\ rvs(p,\ size)} donde
+  \texttt{p} es la probabilidad de éxito.
+\end{itemize}
+
+\hypertarget{r}{%
+\subsubsection{R}\label{r}}
+
+en R, hay que instalar el paquete Rlab
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Rlab)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{python}{%
+\subsubsection{PYthon`}\label{python}}
+
+Hay que importar las funciones del paqute scipy.stats.bernouilli
+
+``
+
+\hypertarget{distribuciuxf3n-binomial}{%
+\subsection{Distribución Binomial}\label{distribuciuxf3n-binomial}}
+
+Si \(X\) es variable aleatoria que mide el ``número de éxitos'' y se
+realizan \(n\) ensayos de Bernoulli independientes entre sí, diremos que
+\(X\) se distribuye como una Binomial con parámetros \(n\) y \(p\)
+
+\[X\sim \text{B}(n,p)\]
+
+donde \(p\) es la probabilidad de éxito y \(q = 1-p\) es la probabilidad
+de fracaso
+
+\begin{itemize}
+\tightlist
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = \{0,1,2,\dots,n\}\)
+\item
+  La \textbf{función de probabilidad} vendrá dada por
+  \[f(k) = {n\choose k}p^k(1-p)^{n-k} \]
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-binomial-1}{%
+\subsection{Distribución Binomial}\label{distribuciuxf3n-binomial-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{función de distribución} vendrá dada por \[F(x) = \left\{
+  \begin{array}{cl}
+     0 & \text{si } x<0 
+  \\ \sum_{k=0}^xf(k) & \text{si } 0\le x<n
+  \\ 1 & \text{si } x\ge n
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = np\)
+\item
+  \textbf{Varianza} \(Var(X) = npq\)
+\end{itemize}
+
+Atención. Fijaos que la distribución de Bernoulli es un caso particular
+de la Binomial. Basta tomar \(n=1\) y tendremos que
+\(X\sim \text{Be}(p)\) y \(X\sim\text{B}(1,p)\) son equivalentes.
+
+\hypertarget{distribuciuxf3n-binomial-2}{%
+\subsection{Distribución Binomial}\label{distribuciuxf3n-binomial-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{distribuciuxf3n-binomial-3}{%
+\subsection{Distribución Binomial}\label{distribuciuxf3n-binomial-3}}
+
+El código de la distribución Binomial:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{Rlab}:
+  \texttt{dbinom(x,\ size,\ prob),\ pbinom(q,size,\ prob),\ qbinom(p,\ size,\ prob),\ rbinom(n,\ size,\ prob)}
+  donde \texttt{prob} es la probabilidad de éxito y \texttt{size} el
+  número de ensayos del experimento.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.binom}:
+  \texttt{pmf(k,n,p),\ cdf(k,n,p),\ ppf(q,n,p),\ rvs(n,\ p,\ size)}
+  donde \texttt{p} es la probabilidad de éxito y \texttt{n} el número de
+  ensayos del experimento.
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-geomuxe9trica}{%
+\subsection{Distribución
+Geométrica}\label{distribuciuxf3n-geomuxe9trica}}
+
+Si \(X\) es variable aleatoria que mide el ``número de repeticiones
+independientes del experimento hasta haber conseguido éxito'', diremos
+que \(X\) se distribuye como una Geométrica con parámetro \(p\)
+
+\[X\sim \text{Ge}(p)\] donde \(p\) es la probabilidad de éxito y
+\(q = 1-p\) es la probabilidad de fracaso
+
+\begin{itemize}
+\item
+  El \textbf{dominio} de \(X\) será \(D_X= \{0,1,2,\dots\}\) o bien
+  \(D_X = \{1,2,\dots\}\) en función de si empieza en 0 o en 1,
+  respectivamente
+\item
+  La \textbf{función de probabilidad} vendrá dada por
+  \[f(k) = (1-p)^{k}p \qquad\text{ si empieza en 0}\]
+  \[f(k) = (1-p)^{k-1}p \qquad\text{ si empieza en 1}\]
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-geomuxe9trica-1}{%
+\subsection{Distribución
+Geométrica}\label{distribuciuxf3n-geomuxe9trica-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{función de distribución} vendrá dada por \[F(x) = \left\{
+  \begin{array}{cl}
+     0 & \text{si } x<0 
+  \\ 1-(1-p)^{k+1} & \text{si } k\le x<k+1,\ k\in\mathbb{N}
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = \frac{1-p}{p}\) si empieza en 0 y
+  E\((X) = \frac{1}{p}\) si empieza en 1
+\item
+  \textbf{Varianza} \(Var(X) = \frac{1-p}{p^2}\)
+\item
+  Propiedad de la falta de memoria. Si \(X\) es una v.a.
+  \(\text{Ge}(p)\), entonces,
+  \[p\{X\ge m+n:\ X\ge n\} = p\{X\ge m\}\ \forall m,n=0,1,\dots\]
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-geomuxe9trica-2}{%
+\subsection{Distribución
+Geométrica}\label{distribuciuxf3n-geomuxe9trica-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\hypertarget{distribuciuxf3n-geomuxe9trica-3}{%
+\subsection{Distribución
+Geométrica}\label{distribuciuxf3n-geomuxe9trica-3}}
+
+El código de la distribución Geométrica:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{Rlab}:
+  \texttt{dgeom(x,\ prob),\ pgeom(q,\ prob),\ qgeom(p,\ prob),\ rgeom(n,\ prob)}
+  donde \texttt{prob} es la probabilidad de éxito del experimento.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.geom}:
+  \texttt{pmf(k,p),\ cdf(k,p),\ ppf(q,p),\ rvs(p,\ size)} donde
+  \texttt{p} es la probabilidad de éxito del experimento.
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-hipergeomuxe9trica}{%
+\subsection{Distribución
+Hipergeométrica}\label{distribuciuxf3n-hipergeomuxe9trica}}
+
+Consideremos el experimento ``extraer a la vez (o una detrás de otra,
+sin retornarlos) \(n\) objetos donde hay \(N\) de tipo A y \(M\) de tipo
+B''. Si \(X\) es variable aleatoria que mide el ``número de objetos del
+tipo A'', diremos que \(X\) se distribuye como una Hipergeométrica con
+parámetros \(N,M,n\) \[X\sim \text{H}(N,M,n)\]
+
+\begin{itemize}
+\tightlist
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = \{0,1,2,\dots,N\}\) (en
+  general)
+\item
+  La \textbf{función de probabilidad} vendrá dada por
+  \[f(k) = \frac{{N\choose k}{M\choose n-k}}{N+M\choose n}\]
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-hipergeomuxe9trica-1}{%
+\subsection{Distribución
+Hipergeométrica}\label{distribuciuxf3n-hipergeomuxe9trica-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{función de distribución} vendrá dada por \[F(x) = \left\{
+  \begin{array}{cl}
+     0 & \text{si } x<0 
+  \\ \sum_{k=0}^xf(k) & \text{si } 0\le x<n
+  \\ 1 & \text{si } x\ge n
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = \frac{nN}{N+M}\)
+\item
+  \textbf{Varianza}
+  \(Var(X) = \frac{nNM}{(N+M)^2}\cdot\frac{N+M-n}{N+M-1}\)
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-hipergeomuxe9trica-2}{%
+\subsection{Distribución
+Hipergeométrica}\label{distribuciuxf3n-hipergeomuxe9trica-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{distribuciuxf3n-hipergeomuxe9trica-3}{%
+\subsection{Distribución
+Hipergeométrica}\label{distribuciuxf3n-hipergeomuxe9trica-3}}
+
+El código de la distribución Hipergeométrica:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{Rlab}:
+  \texttt{dhyper(x,\ m,\ n,\ k),\ phyper(q,\ \ m,\ n,\ k),\ qhyper(p,\ \ m,\ n,\ k),\ rhyper(nn,\ \ m,\ n,\ k)}
+  donde \texttt{m} es el número de objetos del primer tipo, \texttt{n}
+  el número de objetos del segundo tipo y \texttt{k} el número de
+  extracciones realizadas.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.hypergeom}:
+  \texttt{pmf(k,M,\ n,\ N),\ cdf(k,M,\ n,\ N),\ ppf(q,M,\ n,\ N),\ rvs(M,\ n,\ N,\ size)}
+  donde \texttt{M} es el número de objetos del primer tipo, \texttt{N}
+  el número de objetos del segundo tipo y \texttt{n} el número de
+  extracciones realizadas.
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-de-poisson}{%
+\subsection{Distribución de Poisson}\label{distribuciuxf3n-de-poisson}}
+
+Si \(X\) es variable aleatoria que mide el ``número de eventos en un
+cierto intervalo de tiempo'', diremos que \(X\) se distribuye como una
+Poisson con parámetro \(\lambda\)
+
+\[X\sim \text{Po}(\lambda)\] donde \(\lambda\) representa el número de
+veces que se espera que ocurra el evento durante un intervalo dado
+
+\begin{itemize}
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = \{0,1,2,\dots\}\)
+\item
+  La \textbf{función de probabilidad} vendrá dada por
+  \[f(k) = \frac{e^{-\lambda}\lambda^k}{k!}\]
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-de-poisson-1}{%
+\subsection{Distribución de
+Poisson}\label{distribuciuxf3n-de-poisson-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{función de distribución} vendrá dada por \[F(x) = \left\{
+  \begin{array}{cl}
+     0 & \text{si } x<0 
+  \\ \sum_{k=0}^xf(k) & \text{si } 0\le x<n
+  \\ 1 & \text{si } x\ge n
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = \lambda\)
+\item
+  \textbf{Varianza} \(Var(X) = \lambda\)
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-de-poisson-2}{%
+\subsection{Distribución de
+Poisson}\label{distribuciuxf3n-de-poisson-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\hypertarget{distribuciuxf3n-de-poisson-3}{%
+\subsection{Distribución de
+Poisson}\label{distribuciuxf3n-de-poisson-3}}
+
+El código de la distribución de Poisson:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{Rlab}:
+  \texttt{dpois(x,\ lambda),\ ppois(q,lambda),\ qpois(p,lambda),\ rpois(n,\ lambda)}
+  donde \texttt{lambda} es el número esperado de eventos por unidad de
+  tiempo de la distribución.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.poisson}:
+  \texttt{pmf(k,mu),\ cdf(k,mu),\ ppf(q,mu),\ rvs(M,mu)} donde
+  \texttt{mu} es el número esperado de eventos por unidad de tiempo de
+  la distribución.
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-binomial-negativa}{%
+\subsection{Distribución Binomial
+Negativa}\label{distribuciuxf3n-binomial-negativa}}
+
+Si \(X\) es variable aleatoria que mide el ``número de repeticiones
+hasta observar los \(r\) éxitos en ensayos de Bernoulli'', diremos que
+\(X\) se distribuye como una Binomial Negativa con parámetros \(r\) y
+\(p\), \[X\sim\text{BN}(r,p)\] donde \(p\) es la probabilidad de éxito
+
+\begin{itemize}
+\tightlist
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = \{r, r+1, r+2,\dots\}\)
+\item
+  La \textbf{función de probabilidad} vendrá dada por
+  \[f(k) = {k-1\choose r-1}p^r(1-p)^{k-r}, k\geq r\]
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-binomial-negativa-1}{%
+\subsection{Distribución Binomial
+Negativa}\label{distribuciuxf3n-binomial-negativa-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{función de distribución} no tiene una expresión analítica.
+\item
+  \textbf{Esperanza} \(E(X) = \frac{r}{p}\)
+\item
+  \textbf{Varianza} \(Var(X) = r\frac{1-p}{p^2}\)
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-binomial-negativa-2}{%
+\subsection{Distribución Binomial
+Negativa}\label{distribuciuxf3n-binomial-negativa-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\hypertarget{distribuciuxf3n-binomial-negativa-3}{%
+\subsection{Distribución Binomial
+Negativa}\label{distribuciuxf3n-binomial-negativa-3}}
+
+El código de la distribución Binomial Negativa:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{Rlab}:
+  \texttt{dnbinom(x,\ size,\ prop),\ pnbinom(q,\ size,\ prop),\ qnbinom(p,\ size,\ prop),\ rnbinom(n,\ size,\ prop)}
+  donde \texttt{size} es el número de casos exitosos y \texttt{prob} la
+  probabilidad del éxito.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.nbinom}:
+  \texttt{pmf(k,n,p),\ cdf(k,n,p),\ ppf(q,n,p),\ rvs(n,p)} donde
+  \texttt{n}es el número de casos exitosos y \texttt{p} la probabilidad
+  del éxito.
+\end{itemize}
+
+\hypertarget{distribuciones-discretas-en-r}{%
+\subsection{Distribuciones discretas en
+R}\label{distribuciones-discretas-en-r}}
+
+R conoce las distribuciones de probabilidad más importantes.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Distribución
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Instrucción en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Instrucción en Python
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Parámetros
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Bernoulli & \texttt{bern} & \texttt{scipy.stats.bernoulli} &
+probabilidad de éxito \(p\) \\
+Binomial & \texttt{binom} & \texttt{scipy.stats.binom} & tamaño de la
+muestra \(n\) y probabilidad de éxito \(p\) \\
+Geométrica & \texttt{geom} & \texttt{scipy.stats.geom} & probabilidad de
+éxito \(p\) \\
+Hipergeométrica & \texttt{hyper} & \texttt{scipy.stats.hypergeom} &
+\(N,M,n\) \\
+Poisson & \texttt{pois} & \texttt{scipy.stats.poisson} & esperanza
+\(\lambda\) \\
+Binomial Negativa & \texttt{nbinom} & \texttt{scipy.stats.nbinom} &
+número de éxitos \(r\) y probabilidad de éxito \(p\) \\
+\end{longtable}
+
+\hypertarget{variables-aleatorias-continuas}{%
+\section{Variables aleatorias
+continuas}\label{variables-aleatorias-continuas}}
+
+\hypertarget{variable-aleatoria-continua}{%
+\subsection{Variable aleatoria
+continua}\label{variable-aleatoria-continua}}
+
+Variable aleatoria continua. Una v.a.
+\(X:\Omega\longrightarrow\mathbb{R}\) es continua cuando su función de
+distribución \(F_X:\mathbb{R}\longrightarrow[0,1]\) es continua
+
+En este caso, \(F_X(x)=F_X(x^-)\) y, por este motivo,
+\[p(X=x)=0\ \forall x\in\mathbb{R}\] pero esto no significa que sean
+sucesos imposibles
+
+\hypertarget{funciuxf3n-de-densidad}{%
+\subsection{Función de densidad}\label{funciuxf3n-de-densidad}}
+
+Función de densidad. Función \(f:\mathbb{R}\longrightarrow\mathbb{R}\)
+que satisface
+
+\begin{itemize}
+\tightlist
+\item
+  \(f(x)\ge 0\ \forall x\in\mathbb{R}\)
+\item
+  \(\int_{-\infty}^{+\infty}f(t)dt=1\)
+\end{itemize}
+
+Una función de densidad puede tener puntos de discontinuidad
+
+\hypertarget{variable-aleatoria-continua-1}{%
+\subsection{Variable aleatoria
+continua}\label{variable-aleatoria-continua-1}}
+
+Toda variable aleatoria \(X\) con función de distribución
+
+\[F(x)=\int_{-\infty}^{x}f(t)dt\ \forall x\in\mathbb{R}\] para cualquier
+densidad \(f\) es una v.a. continua
+
+Diremos entonces que \(f\) es la función de densidad de \(X\)
+
+A partir de ahora, considerareos solamente las v.a. \(X\) continuas que
+tienen función de densidad
+
+\hypertarget{esperanza-1}{%
+\subsection{Esperanza}\label{esperanza-1}}
+
+Esperanza de una v.a. continua. Sea \(X\) v.a. continua con densidad
+\(f_X\). La esperanza de \(X\) es
+\[E(X)=\int_{-\infty}^{+\infty}x\cdot f_X(x)dx\]
+
+Si el dominio \(D_X\) de \(X\) es un intervalo de extremos \(a<b\),
+entonces \[E(X)=\int_a^b x\cdot f_X(x)dx\]
+
+\hypertarget{esperanza-2}{%
+\subsection{Esperanza}\label{esperanza-2}}
+
+Sea \(g:D_X\longrightarrow \mathbb{R}\) una función continua. Entonces,
+
+\[E(g(X)) = \int_{-\infty}^{+\infty}g(x)\cdot f_X(x)dx\]
+
+Si el dominio \(D_X\) de \(X\) es un intervalo de extremos \(a<b\),
+entonces \[E(g(X))=\int_a^b g(x)\cdot f_X(x)dx\]
+
+\hypertarget{varianza-1}{%
+\subsection{Varianza}\label{varianza-1}}
+
+Varianza de una v.a. continua. Como en el caso discreto,
+\[Var(X)=E((X-E(X))^2)\]
+
+y se puede demostrar que
+
+\[Var(X)=E(X^2)-(E(X))^2\]
+
+\hypertarget{desviaciuxf3n-tuxedpica-1}{%
+\subsection{Desviación típica}\label{desviaciuxf3n-tuxedpica-1}}
+
+Desviación típica de una v.a. continua. Como en el caso discreto,
+\[\sigma = \sqrt{Var(X)}\]
+
+\hypertarget{distribuciones-continuas-muxe1s-conocidas}{%
+\section{Distribuciones continuas más
+conocidas}\label{distribuciones-continuas-muxe1s-conocidas}}
+
+\hypertarget{distribuciones-continuas}{%
+\subsection{Distribuciones continuas}\label{distribuciones-continuas}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_uniforme_continua}{Uniforme}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_exponencial}{Exponencial}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_normal}{Normal}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_χ²}{Khi cuadrado}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_t_de_Student}{t de
+  Student}
+\item
+  \href{https://es.wikipedia.org/wiki/Distribución_F}{F de Fisher}
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-uniforme}{%
+\subsection{Distribución Uniforme}\label{distribuciuxf3n-uniforme}}
+
+Una v.a. continua \(X\) tiene distribución uniforme sobre el intervalo
+real \([a,b]\) con \(a<b\), \(X\sim\text{U}(a,b)\) si su función de
+densidad es \[f_X(x)=\left\{
+\begin{array}{rl}
+     \frac{1}{b-a} & \text{si } a\le x\le b
+  \\ 0 & \text{en cualquier otro caso}
+\end{array}
+\right.\]
+
+Modela el elegir un elemento del intervalo \([a,b]\) de manera
+equiprobable
+
+\hypertarget{distribuciuxf3n-uniforme-1}{%
+\subsection{Distribución Uniforme}\label{distribuciuxf3n-uniforme-1}}
+
+\begin{itemize}
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = [a,b]\)
+\item
+  La \textbf{función de distribución} vendrá dada por \[F_X(x)=\left\{
+  \begin{array}{rl}
+    0 & \text{si } x<a
+  \\ \frac{x-a}{b-a} & \text{si } a\le x< b
+  \\ 1 & \text{si } x\ge b
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = \frac{a+b}{2}\)
+\item
+  \textbf{Varianza} \(Var(X) = \frac{(b-a)^2}{12}\)
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-uniforme-2}{%
+\subsection{Distribución Uniforme}\label{distribuciuxf3n-uniforme-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\hypertarget{distribuciuxf3n-uniforme-3}{%
+\subsection{Distribución Uniforme}\label{distribuciuxf3n-uniforme-3}}
+
+El código de la distribución Uniforme:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{stats}:
+  \texttt{dunif(x,\ min,\ max),\ punif(q,\ min,\ max),\ qunif(p,\ min,\ max),\ runif(n,\ \ min,\ max)}
+  donde \texttt{min} y \texttt{max} són los extremos de los intervalos
+  de la distribución uniforme.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.uniform}:
+  \texttt{pdf(k,loc,\ scale),\ cdf(k,loc,\ scale),\ ppf(q,loc,\ scale),\ rvs(n,loc,\ scaler)}
+  donde la distribución uniforme está definida en el intervalo
+  \texttt{{[}loc,\ loc+scale{]}}.
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-exponencial}{%
+\subsection{Distribución
+Exponencial}\label{distribuciuxf3n-exponencial}}
+
+Una v.a. \(X\) tiene distribución exponencial de parámetro \(\lambda\),
+\(X\sim\text{Exp}(\lambda)\), si su función de densidad es
+\[f_X(x)=\left\{
+\begin{array}{rl}
+     0 & \text{si }  x\le 0
+  \\ \lambda\cdot e^{-\lambda x} & \text{si }x>0
+\end{array}
+\right.\]
+
+Teorema. Si tenemos un proceso de Poisson de parámetro \(\lambda\) por
+unidad de tiempo, el tiempo que pasa entre dos sucesos consecutivos es
+una v.a. \(\text{Exp}(\lambda)\)
+
+Propiedad de la pérdida de memoria. Si \(X\) es v.a.
+\(\text{Exp}(\lambda)\), entonces
+\[p(X>s+t\ :\ X>s)=p(X>t)\ \forall s,t>0\]
+
+\hypertarget{distribuciuxf3n-exponencial-1}{%
+\subsection{Distribución
+Exponencial}\label{distribuciuxf3n-exponencial-1}}
+
+\begin{itemize}
+\item
+  El \textbf{dominio} de \(X\) será \(D_X = [0,\infty)\)
+\item
+  La \textbf{función de distribución} vendrá dada por \[F_X(x)=\left\{
+  \begin{array}{rl}
+    0 & \text{si } x\le 0
+  \\ 1-e^{-\lambda x} & \text{si } x>0
+  \end{array}
+  \right.\]
+\item
+  \textbf{Esperanza} \(E(X) = \frac{1}{\lambda}\)
+\item
+  \textbf{Varianza} \(Var(X) = \frac{1}{\lambda^2}\)
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-exponencial-2}{%
+\subsection{Distribución
+Exponencial}\label{distribuciuxf3n-exponencial-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\hypertarget{distribuciuxf3n-exponencial-3}{%
+\subsection{Distribución
+Exponencial}\label{distribuciuxf3n-exponencial-3}}
+
+El código de la distribución Exponencial:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{stats}:
+  \texttt{dexp(x,\ rate),\ pexp(q,\ rate),\ qexp(p,\ rate),\ rexp(n,\ \ rate)}
+  donde \texttt{rate}\(=\lambda\) es el tiempo entre dos sucesos
+  consecutivos de la distribución.
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.expon}:
+  \texttt{pdf(k,\ scale),\ cdf(k,\ scale),\ ppf(q,\ scale),\ rvs(n,\ scaler)}
+  donde \texttt{scale}\(=1/\lambda\) es la inversa del tiempo entre dos
+  sucesos consecutivos de la distribución.
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-normal}{%
+\subsection{Distribución Normal}\label{distribuciuxf3n-normal}}
+
+Una v.a. \(X\) tiene distribución normal o gaussiana de parámetros
+\(\mu\) y \(\sigma\), \(X\sim\mathcal{N}(\mu,\sigma)\) si su función de
+densidad es
+\[f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\quad \forall x\in\mathbb{R}\]
+
+La gráfica de \(f_X\) es conocida como la Campana de Gauss
+
+Cuando \(\mu = 0\) y \(\sigma = 1\), diremos que la v.a. \(X\) es
+estándar y la indicaremos usualmente como \(Z\), la cual tendrá función
+de densidad
+\[f_Z(z)=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\quad \forall z\in\mathbb{R}\]
+
+\hypertarget{distribuciuxf3n-normal-1}{%
+\subsection{Distribución Normal}\label{distribuciuxf3n-normal-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Esperanza} \(E(X) = \mu\)
+\item
+  \textbf{Varianza} \(Var(X) = \sigma^2\)
+\end{itemize}
+
+En particualr, si \(Z\) sigue una distribución estándar,
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Esperanza} \(E(X) = 0\)
+\item
+  \textbf{Varianza} \(Var(X) = 1\)
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-normal-2}{%
+\subsection{Distribución Normal}\label{distribuciuxf3n-normal-2}}
+
+\includegraphics{11_Distribuciones_de_probabilidad_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\hypertarget{distribuciuxf3n-normal-3}{%
+\subsection{Distribución Normal}\label{distribuciuxf3n-normal-3}}
+
+El código de la distribución Normal:
+
+\begin{itemize}
+\tightlist
+\item
+  En \texttt{R} tenemos las funciones del paquete \texttt{stats}:
+  \texttt{dnorm(x,\ mean,\ sd),\ pnorm(q,\ \ mean,\ sd),\ qnorm(p,\ \ mean,\ sd),\ rnorm(n,\ \ \ mean,\ sd)}
+  donde \texttt{mean} es la media y \texttt{sd} es la desviación
+  estándar de la normal \(N(\mu, \sigma)\).
+\item
+  En \texttt{Python} tenemos las funciones del paquete
+  \texttt{scipy.stats.normal}:
+  \texttt{pdf(k,\ mu,\ scale),\ cdf(k,\ \ mu,\ scale),\ ppf(q,\ \ mu,\ scale),\ rvs(n,\ \ mu,\ scale)}
+  donde \texttt{mu} es la media y \texttt{scale} es la desviación
+  estándar de la normal \(N(\mu, \sigma)\).
+\end{itemize}
+
+\hypertarget{distribuciuxf3n-normal-4}{%
+\subsection{Distribución Normal}\label{distribuciuxf3n-normal-4}}
+
+Estandarización de una v.a. normal. Si \(X\) es una v.a.
+\(\mathcal{N}(\mu,\sigma)\), entonces
+\[Z=\frac{X-\mu}{\sigma}\sim\mathcal{N}(0,1)\]
+
+Las probabilidades de una normal estándar \(Z\) determinan las de
+cualquier \(X\) de tipo \(\mathcal{N}(\mu,\sigma)\):
+
+\[p(X\le x)=p\left(\frac{X-\mu}{\sigma}\le\frac{x-\mu}{\sigma}\right)=p\left(Z\le\frac{x-\mu}{\sigma}\right)\]
+
+\hypertarget{distribuciuxf3n-normal-5}{%
+\subsection{Distribución Normal}\label{distribuciuxf3n-normal-5}}
+
+\(F_Z\) no tiene expresión conocida.
+
+Se puede calcular con cualquier programa, como por ejemplo R, o bien a
+mano utilizando las
+\href{https://github.com/joanby/r-basic/blob/master/teoria/TablaNormal.pdf}{tablas
+de la \(\mathcal{N}(0,1)\)}
+
+Con las tablas se pueden calcular tanto probabilidades como cuantiles
+
+\hypertarget{distribuciuxf3n-normal-en-r-y-python}{%
+\subsection{Distribución Normal en R y
+Python}\label{distribuciuxf3n-normal-en-r-y-python}}
+
+Si a la hora de llamar a alguna de las 4 funciones siguientes:
+\texttt{dnorm}, \texttt{pnorm}, \texttt{qnorm} o \texttt{rnorm} no
+especificásemos los parámetros de la media ni la desviación típica, R
+entiende que se trata de la normal estándar: la \(\mathcal{N}(0,1)\).
+
+Es decir, R interpreta \(\mu = 0\) y \(\sigma = 1\)
+
+En Python ocurre exactamente lo mismo.
+
+\hypertarget{otras-distribuciones-importantes}{%
+\subsection{Otras distribuciones
+importantes}\label{otras-distribuciones-importantes}}
+
+\begin{itemize}
+\tightlist
+\item
+  La distribución \(\chi^2_k\), donde \(k\) representa los grados de
+  libertad de la misma y que procede de la suma de los cuadrados de
+  \(k\) distribuciones normales estándar independientes:
+\end{itemize}
+
+\[X = Z_1^2 + Z_2^2+\cdots + Z_k^2\sim \chi_k^2\]
+
+\hypertarget{otras-distribuciones-importantes-1}{%
+\subsection{Otras distribuciones
+importantes}\label{otras-distribuciones-importantes-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  La distribución \(t_k\) surge del problema de estimar la media de una
+  población normalmente distribuida cuando el tamaño de la muestra es
+  pequeña y procede del cociente
+\end{itemize}
+
+\[T = \frac{Z}{\sqrt{\chi^2_k/k}}\sim T_k\]
+
+\hypertarget{otras-distribuciones-importantes-2}{%
+\subsection{Otras distribuciones
+importantes}\label{otras-distribuciones-importantes-2}}
+
+\begin{itemize}
+\tightlist
+\item
+  La distribución \(F_{n_1,n_2}\) aparece frecuentemente como la
+  distribución nula de una prueba estadística, especialmente en el
+  análisis de varianza. Viene definida como el cociente
+\end{itemize}
+
+\[F = \frac{\chi^2_{n_1}/n_1}{\chi^2_{n_2}/n_2}\sim F_{n_1,n_2}\]
+
+\hypertarget{distribuciones-continuas-en-r}{%
+\subsection{Distribuciones continuas en
+R}\label{distribuciones-continuas-en-r}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Distribución
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Instrucción en R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Instrucción en Python
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Parámetros
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Uniforme & \texttt{unif} & \texttt{scipy.stats.uniform} & mínimo y
+máximo \\
+Exponencial & \texttt{exp} & \texttt{scipy.stats.expon} & \(\lambda\) \\
+Normal & \texttt{norm} & \texttt{scipy.stats.normal} & media \(\mu\),
+desviación típica \(\sigma\) \\
+Khi cuadrado & \texttt{chisq} & \texttt{scipy.stats.chi2} & grados de
+libertad \\
+t de Student & \texttt{t} & \texttt{scipy.stats.t} & grados de
+libertad \\
+F de Fisher & \texttt{f} & \texttt{scipy.stats.f} & los dos grados de
+libertad \\
+\end{longtable}
+
+\hypertarget{otras-distribuciones-conocidas}{%
+\subsection{Otras distribuciones
+conocidas}\label{otras-distribuciones-conocidas}}
+
+\begin{itemize}
+\tightlist
+\item
+  Distribución de Pareto (Power Law)
+\item
+  Distribución Gamma y Beta
+\item
+  Distribución Log Normal
+\item
+  Distribución de Weibull
+\item
+  Distribución de Cauchy
+\item
+  Distribución Exponencial Normal
+\item
+  Distribución Von Mises
+\item
+  Distribución Rayleigh
+\item
+  \ldots{}
+\end{itemize}
+
+\end{document}
