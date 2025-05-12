@@ -1,0 +1,9 @@
+---
+title: "11_Distribuciones_de_probabilidad_tarea_02"
+author: Alberto Simón
+date: "12/05/2025"
+output: pdf_document
+---
+# 
+
+## Pregunta 1
